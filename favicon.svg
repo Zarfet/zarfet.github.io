@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <rect x="0" y="0" width="100" height="100" style="fill:rgb(10,10,10);fill-opacity:0;"/>
-    <g transform="matrix(1,0,0,1,49.67,65.4)">
-        <rect x="-10.23" y="-30.8" width="4.84" height="30.8" style="fill:white;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
-        <path d="M10.89,-30.8L-2.838,-30.8L-2.838,-26.4L5.918,-26.4L-3.278,-4.312L-3.278,0L10.89,0L10.89,-4.4L1.694,-4.4L10.89,-26.488L10.89,-30.8Z" style="fill:white;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    <g transform="matrix(2.31805,0,0,2.31805,49.235,85.6979)">
+        <rect x="-10.23" y="-30.8" width="4.84" height="30.8" style="fill:white;fill-rule:nonzero;stroke:black;stroke-width:0.43px;"/>
+        <path d="M10.89,-30.8L-2.838,-30.8L-2.838,-26.4L5.918,-26.4L-3.278,-4.312L-3.278,0L10.89,0L10.89,-4.4L1.694,-4.4L10.89,-26.488L10.89,-30.8Z" style="fill:white;fill-rule:nonzero;stroke:black;stroke-width:0.43px;"/>
     </g>
 </svg>
