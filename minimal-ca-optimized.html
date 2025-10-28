@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ilverzon Zarate - QA Analyst + Pensament de Disseny</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #6b6b6b;
+      --light-gray: #f5f5f5;
+      --accent: #a50e1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    .nav-links a.active {
+      color: var(--black);
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--black);
+    }
+
+    /* Language Dropdown */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-current {
+      background: none;
+      border: 2px solid var(--black);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-current:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .lang-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+
+    .lang-dropdown.active .lang-arrow {
+      transform: rotate(180deg);
+    }
+
+    .lang-options {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 8px;
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .lang-dropdown.active .lang-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: block;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--black);
+      transition: background 0.2s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .lang-option:hover {
+      background: var(--light-gray);
+    }
+
+    .lang-option:first-child {
+      border-radius: 6px 6px 0 0;
+    }
+
+    .lang-option:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+
+    .lang-option.active {
+      font-weight: 700;
+      background: var(--light-gray);
+    }
+
+    .lang-option.active::before {
+      content: "✓ ";
+      color: var(--black);
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .mobile-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      pointer-events: none;
+    }
+
+    .mobile-menu-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-radius: 24px 24px 0 0;
+      padding: 2rem 2rem 3rem;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+      max-height: 70vh;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      visibility: hidden;
+    }
+
+    .mobile-menu-drawer.active {
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu-links li {
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .mobile-menu-links li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 1.2rem 0;
+      text-decoration: none;
+      color: var(--black);
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-links a.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 8rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      min-height: 100vh;
+    }
+
+    .hero-text {
+      max-width: 700px;
+      padding: 0 4rem;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      color: var(--gray);
+      font-weight: 900;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--gray);
+      font-weight: 400;
+      margin-bottom: 3rem;
+      max-width: 700px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .tag {
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--black);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Services Section */
+    .services {
+      background: var(--light-gray);
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 4rem;
+    }
+
+    .services-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+
+    .service-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 500;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+
+    .service-item::before {
+      content: '•';
+      margin-right: 1rem;
+      color: var(--black);
+      font-size: 1.5rem;
+    }
+
+    .service-item:hover {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-intro {
+      position: sticky;
+      top: 10rem;
+    }
+
+    .about-intro h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .about-content p strong {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    /* Experience Section */
+    .experience {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .experience .section-title {
+      color: var(--white);
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .experience-date {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .experience-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .experience-company {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .experience-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .skill-category h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .skill-list span {
+      color: var(--gray);
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .skill-list span:hover {
+      color: var(--black);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      padding: 1.2rem 3rem;
+      border: 1px solid var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      nav {
+        padding: 1.5rem 2rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      section {
+        padding: 6rem 2rem;
+      }
+
+      .hero {
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .hero-text {
+        padding: 8rem 2rem 4rem 2rem;
+        order: 1;
+      }
+
+      .hero-image {
+        min-height: 60vh;
+        order: 0;
+      }
+
+      .hero-image-placeholder {
+        font-size: 6rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-intro {
+        position: relative;
+        top: 0;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .experience-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-text {
+        padding: 6rem 1.5rem 3rem 1.5rem;
+      }
+
+      .hero-image {
+        min-height: 50vh;
+      }
+
+      .hero-image-placeholder {
+        font-size: 4rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">
+      <!-- Text logo -->
+      Ilverzon Zarate
+      <!-- To use image logo instead, replace above with: -->
+      <!-- <img src="./images/logo.png" alt="Ilverzon Zarate"> -->
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Inici</a></li>
+      <li><a href="#services">Serveis</a></li>
+      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#experience">Experiència</a></li>
+      <li><a href="#skills">Habilitats</a></li>
+      <li><a href="#contact">Contacte</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Obrir menú de navegació" aria-expanded="false" aria-controls="mobile-menu-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <!-- Language Selector Dropdown -->
+    <div class="lang-dropdown" id="lang-dropdown">
+      <button class="lang-current" id="lang-current" aria-label="Seleccionar idioma" aria-expanded="false">
+        <span id="lang-text">CA</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-options" id="lang-options" role="menu">
+        <a href="index.html" class="lang-option" role="menuitem">English</a>
+        <a href="minimal-es-optimized.html" class="lang-option" role="menuitem">Español</a>
+        <a href="minimal-ca-optimized.html" class="lang-option active" role="menuitem">Català</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Backdrop -->
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-menu-drawer" id="mobile-menu-drawer" role="navigation" aria-label="Navegació mòbil">
+    <ul class="mobile-menu-links">
+      <li><a href="#home">Inici</a></li>
+      <li><a href="#services">Serveis</a></li>
+      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#experience">Experiència</a></li>
+      <li><a href="#skills">Habilitats</a></li>
+      <li><a href="#contact">Contacte</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content fade-in">
+      <div class="hero-text">
+        <h1>QA que pensa<br>com un dissenyador</h1>
+        <p class="hero-subtitle">
+          Trobo bugs que altres no veuen perquè entenc tant el codi com l'experiència d'usuari. 
+          10+ anys assegurant que els productes digitals funcionin, i tinguin sentit.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Visual</span>
+          <span class="tag">Tècnic</span>
+          <span class="tag">Estratègic</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Treballem junts</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
+        <div class="hero-image-placeholder">IZ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">Què puc fer per tu?</h2>
+      <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px;">
+        Anem directes al gra.
+      </p>
+      <div class="services-list">
+        <div class="service-item">Provo funcionalitat I experiència d'usuari, detectant problemes on l'execució tècnica es troba amb el flux de l'usuari</div>
+        <div class="service-item">Dissenyo estratègies de QA des de zero, establint processos que ajuden els equips a llançar més ràpid sense trencar res</div>
+        <div class="service-item">Llegeixo codi per detectar problemes aviat. Entendre l'arquitectura m'ajuda a trobar fallades abans que arribin a producció</div>
+        <div class="service-item">Treballo amb eines modernes (Selenium, Cypress, JIRA, Git) però el meu valor és la perspectiva híbrida: disseny + tech + QA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-intro">
+          <h2>On la qualitat tècnica es troba amb l'experiència d'usuari</h2>
+        </div>
+        <div class="about-content">
+          <p>
+            La meva curiositat sobre com funcionaven les coses darrere de les pantalles em va portar al Quality Assurance. Aquella transició es va convertir en el meu avantatge.
+          </p>
+          <p>
+            La majoria d'analistes QA proven funcionalitat. Jo provo funcionalitat I experiència. Llegeixo codi, entenc arquitectura de sistemes i faig servir eines modernes de testing, però el meu diferenciador és detectar problemes on l'execució tècnica es troba amb el flux de l'usuari.
+          </p>
+          <p>
+            He passat 10+ anys liderant estratègies de QA per a productes digitals complexos: plataformes e-commerce que gestionen milions de transaccions, apps fintech, aplicacions de mitjans. Treballo amb Selenium, Cypress i frameworks àgils, però el veritable valor és la meva perspectiva híbrida.
+          </p>
+          <p>
+            Una funcionalitat pot passar totes les proves tècniques i tot i així crear una experiència terrible. Jo sóc la persona que detecta aquella desconnexió.
+          </p>
+          <p>
+            Si necessites QA que va més enllà de "funciona?" cap a "té sentit?", parlem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <h2 class="section-title">Experiència</h2>
+      <div class="experience-list">
+        
+        <div class="experience-item">
+          <div class="experience-date">2020 — Present</div>
+          <div class="experience-content">
+            <h3>Senior Quality Assurance Analyst</h3>
+            <div class="experience-company">Huge · Colòmbia</div>
+            <p class="experience-description">
+              Liderant estratègies de QA per a productes digitals complexos. Especialitzat en testing front-end i back-end, 
+              treballant amb equips distribuïts per establir processos de qualitat que equilibren velocitat i fiabilitat. 
+              Enfocament en detectar tant bugs tècnics com problemes d'UX que impacten l'experiència de l'usuari.
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">2018 — 2020</div>
+          <div class="experience-content">
+            <h3>Senior Quality Control Analyst</h3>
+            <div class="experience-company">Globant · Buenos Aires, Argentina</div>
+            <p class="experience-description">
+              Vaig dissenyar i supervisar estratègies de testing integrals per a múltiples tipus de projectes. Vaig liderar 
+              l'organització de proves unitàries, d'integració, funcionals, de sistema, de càrrega i usabilitat. Vaig coordinar 
+              esforços de QA a través de zones horàries per a clients internacionals.
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">2015 — 2018</div>
+          <div class="experience-content">
+            <h3>Quality Control Analyst</h3>
+            <div class="experience-company">Globant · Bogotà, Colòmbia</div>
+            <p class="experience-description">
+              Especialista en equips d'integració, dissenyant estratègies de proves i la seva execució. Vaig gestionar eines 
+              de casos de prova automatitzats i funcionals, establint frameworks que van millorar l'eficiència de l'equip i la qualitat del producte.
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">2014 — 2015</div>
+          <div class="experience-content">
+            <h3>Sr. Technical QA Analyst</h3>
+            <div class="experience-company">VML · Colòmbia</div>
+            <p class="experience-description">
+              Enfocat en qualitat i atenció al detall per a campanyes digitals i plataformes. Vaig mantenir comunicació efectiva 
+              entre stakeholders tècnics i no tècnics, assegurant claredat en l'estat dels projectes.
+            </p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">2012 — 2014</div>
+          <div class="experience-content">
+            <h3>QA Analyst</h3>
+            <div class="experience-company">VML · Colòmbia</div>
+            <p class="experience-description">
+              Vaig iniciar la meva carrera en QA després de la transició des de disseny gràfic. Vaig supervisar testing de productes, vaig dissenyar 
+              plans de prova i vaig coordinar amb enginyers de testing. Aquest període va establir la base per al meu 
+              enfocament híbrid de quality assurance.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Habilitats</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Testing & QA</h3>
+          <div class="skill-list">
+            <span>Testing Manual</span>
+            <span>Disseny d'Estratègies de Testing</span>
+            <span>ISTQB Certified</span>
+            <span>Testing Front-end</span>
+            <span>Testing Back-end</span>
+            <span>Testing Responsiu</span>
+            <span>Testing UX</span>
+            <span>A11Y (Accessibilitat)</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Metodologies</h3>
+          <div class="skill-list">
+            <span>Agile / Scrum</span>
+            <span>CI/CD</span>
+            <span>Test-Driven Development</span>
+            <span>Gestió de Riscos</span>
+            <span>Establiment de Processos</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Eines & Tech</h3>
+          <div class="skill-list">
+            <span>Selenium</span>
+            <span>Cypress</span>
+            <span>Postman</span>
+            <span>JIRA</span>
+            <span>Git</span>
+            <span>SQL</span>
+            <span>Lectura de Codi (JS, HTML, CSS)</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Disseny & UX</h3>
+          <div class="skill-list">
+            <span>Figma</span>
+            <span>Adobe Creative Suite</span>
+            <span>Disseny Responsiu</span>
+            <span>Comunicació Gràfica</span>
+            <span>Anàlisi de Fluxos d'Usuari</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Parlem?</h2>
+      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+        Tens un projecte en ment? Estic disponible per a projectes freelance, consultoria i col·laboracions.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ilverzonzarate@gmail.com" class="contact-link">Email</a>
+        <a href="https://www.linkedin.com/in/ilverzon" target="_blank" class="contact-link">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ilverzon Zarate. Tots els drets reservats.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll reveal
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.experience-item, .service-item, .skill-category').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Navigation active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function setActiveLink() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+
+    // Mobile menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileBackdrop = document.querySelector('.mobile-menu-backdrop');
+    const mobileDrawer = document.querySelector('.mobile-menu-drawer');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+    function openMobileMenu() {
+      menuToggle.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileBackdrop.classList.add('active');
+      mobileBackdrop.setAttribute('aria-hidden', 'false');
+      mobileDrawer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileBackdrop.classList.remove('active');
+      mobileBackdrop.setAttribute('aria-hidden', 'true');
+      mobileDrawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Toggle menu on hamburger click
+    menuToggle.addEventListener('click', () => {
+      if (menuToggle.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    // Close menu on backdrop click
+    mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+    // Close menu when a link is clicked
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Update mobile menu active state on scroll
+    function updateMobileMenuActive() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      mobileMenuLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateMobileMenuActive);
+
+    // Close menu on escape key (accessibility)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Language dropdown toggle
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langCurrent = document.getElementById('lang-current');
+    const langOptions = document.getElementById('lang-options');
+
+    if (langDropdown && langCurrent && langOptions) {
+      langCurrent.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+        const isExpanded = langDropdown.classList.contains('active');
+        langCurrent.setAttribute('aria-expanded', isExpanded);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!langDropdown.contains(e.target)) {
+          langDropdown.classList.remove('active');
+          langCurrent.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close dropdown on ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && langDropdown.classList.contains('active')) {
+          langDropdown.classList.remove('active');
+          langCurrent.setAttribute('aria-expanded', 'false');
+          langCurrent.focus();
+        }
+      });
+
+      // Detect current language and update button text
+      const currentPath = window.location.pathname;
+      let currentLang = 'EN';
+
+      if (currentPath.includes('es-optimized')) {
+        currentLang = 'ES';
+      } else if (currentPath.includes('ca-optimized')) {
+        currentLang = 'CA';
+      }
+
+      document.getElementById('lang-text').textContent = currentLang;
+
+      // Highlight active language option
+      const langOptionLinks = document.querySelectorAll('.lang-option');
+      langOptionLinks.forEach(link => {
+        link.classList.remove('active');
+        if ((currentLang === 'EN' && link.href.includes('index.html')) ||
+            (currentLang === 'ES' && link.href.includes('es-optimized')) ||
+            (currentLang === 'CA' && link.href.includes('ca-optimized'))) {
+          link.classList.add('active');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
