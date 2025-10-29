@@ -2,54 +2,53 @@
 
 Professional portfolio showcasing QA expertise with design thinking approach.
 
-Live Site: https://zarfet.github.io
+🌐 **Live Site:** [Coming soon]
 
 ---
 
-## Features
+## 🌟 Features
 
-- 50/50 Editorial Layout - Large hero image with professional presence
-- Trilingual - English, Spanish, and Catalan versions with dropdown selector
-- Mobile-Responsive - iOS-style drawer menu, adapts to all screen sizes
-- Accessibility-Ready - ARIA attributes, keyboard navigation (ESC, Tab, Enter)
-- Performance Optimized - Async font loading, optimized rendering
-- Strategic Positioning - "QA that thinks like a designer" differentiation
-- Social Sharing - Open Graph meta tags for LinkedIn, Twitter, Facebook
-- CV Download - Multi-language PDF downloads
+- **50/50 Editorial Layout** - Large hero image with professional presence
+- **Trilingual** - English, Spanish, and Catalan versions with dropdown selector
+- **Mobile-Responsive** - iOS-style drawer menu, adapts to all screen sizes
+- **Accessibility-Ready** - ARIA attributes, keyboard navigation (ESC, Tab, Enter)
+- **Performance Optimized** - Minimal JavaScript, fast loading, smooth animations, font optimization
+- **Strategic Positioning** - "QA that thinks like a designer" differentiation
+- **Downloadable CV** - Direct PDF download link in contact section
 
 ---
 
-## Structure
+## 📁 Structure
 
 ```
-├── index.html                    # English version (landing page)
-├── minimal-es-optimized.html     # Spanish version
-├── minimal-ca-optimized.html     # Catalan version
-├── favicon.svg                   # Site icon
-├── cv/                           # CV files by language
-│   ├── cv-ilverzon-zarate-en.pdf
-│   ├── cv-ilverzon-zarate-es.pdf
-│   └── cv-ilverzon-zarate-ca.pdf
+├── cv/
+│   └── cv-ilverzon-zarate-en.pdf    # Downloadable CV
+├── es/
+│   └── index.html                   # Spanish version
+├── ca/
+│   └── index.html                   # Catalan version
 ├── images/
-│   └── og-image.png              # Open Graph share image (1200x630)
-└── README.md
+│   ├── og-image.jpg                 # Open Graph image (1200x630)
+│   └── og-image.svg                 # SVG version (backup)
+├── index.html                       # English version (landing page)
+├── favicon.svg                      # Site icon SVG
+├── favicon.ico                      # Site icon ICO
+├── CNAME                            # Custom domain config
+├── .gitignore                       # Git ignore rules
+└── README.md                        # This file
 ```
 
 ---
 
-## Color Palette
+## 🌐 URLs
 
-```css
---black: #0a0a0a       /* Primary background */
---white: #ffffff       /* Primary text on dark */
---gray: #252525        /* Body text */
---light-gray: #f5f5f5  /* Section backgrounds */
---accent: #a50e1a      /* CTA buttons, highlights */
-```
+- **English:** `https://zarfet.com/`
+- **Español:** `https://zarfet.com/es/`
+- **Català:** `https://zarfet.com/ca/`
 
 ---
 
-## Language Selector
+## 🌍 Language Selector
 
 Professional dropdown menu with automatic language detection:
 - Shows current language (EN/ES/CA)
@@ -57,33 +56,50 @@ Professional dropdown menu with automatic language detection:
 - Closes on click outside or ESC key
 - Fully keyboard accessible
 - Works on desktop and mobile
+- iOS Safari compatible
+- Smart path detection for subdirectories
 
 ---
 
-## Tech Stack
+## 🔍 SEO & Social Media
 
-- HTML5 & CSS3 - Semantic structure, custom styling
-- Vanilla JavaScript - Scroll animations, mobile menu, language dropdown
-- Inter Font - Google Fonts typography, async loaded
-- No frameworks - Pure code, no dependencies
+All pages include:
+- Meta descriptions optimized per language
+- Open Graph tags (Facebook, LinkedIn)
+- Twitter Card tags
+- OG image (1200x630 JPG format)
+- Proper locale tags (en_US, es_ES, ca_ES)
 
----
-
-## Performance Optimizations
-
-- Async font loading (media print hack)
-- Minimal render-blocking resources
-- iOS Safari button styling fixes (-webkit-appearance)
-- Optimized font weights (removed unused 300, 900)
-- Lighthouse Performance Score: 95+
+**OG Image location:** `/images/og-image.jpg`
 
 ---
 
-## Local Development
+## 🚀 Tech Stack
+
+- **HTML5 & CSS3** - Semantic structure, custom styling
+- **Vanilla JavaScript** - Scroll animations, mobile menu, language dropdown
+- **Inter Font** - Google Fonts with preload optimization
+- **No frameworks** - Pure code, no dependencies
+- **Custom color scheme** - Red accent (#a50e1a) for brand consistency
+
+---
+
+## 🎨 Key Design Decisions
+
+- **50/50 hero split** - Editorial style, professional presence
+- **Black experience section** - Visual hierarchy and impact
+- **First-person bio** - Direct, human connection
+- **Mobile sheet drawer** - Modern iOS-style navigation
+- **Language dropdown** - Professional 3-language selector
+- **Strategic messaging** - Immediate value communication
+
+---
+
+## 💻 Local Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/Zarfet/zarfet.github.io.git
+git clone https://github.com/YOUR-USERNAME/portfolio.git
 
 # Open in browser
 open index.html
@@ -91,49 +107,38 @@ open index.html
 
 No build process needed - pure HTML/CSS/JS.
 
----
-
-## Deployment
-
-Deployed on GitHub Pages:
-- Settings → Pages
-- Source: Deploy from branch
-- Branch: main, Folder: / (root)
-
-Site available at: https://zarfet.github.io
+**Important folders:**
+- `/cv/` - CV PDF files
+- `/images/` - OG images and profile photo (when added)
 
 ---
 
-## Testing
+## 🌍 Deployment
 
-### Lighthouse
-```bash
-# Performance: 95+
-# Accessibility: 100
-# Best Practices: 100
-# SEO: 100
-```
+Deployed on GitHub Pages with custom domain:
+- Domain: **zarfet.com**
+- CDN: Fastly (via GitHub Pages)
+- SSL: Automatic (GitHub Pages)
 
-### Cross-Browser
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari Desktop & iOS
-- Mobile Chrome
+Site available at: `https://zarfet.com`
 
-### Open Graph Validation
-- Facebook Debugger: https://developers.facebook.com/tools/debug/
-- LinkedIn Inspector: https://www.linkedin.com/post-inspector/
-- Twitter Card Validator: https://cards-dev.twitter.com/validator
+### Deploy Steps:
+1. Settings → Pages
+2. Source: Deploy from branch
+3. Branch: main, Folder: / (root)
+4. Custom domain: zarfet.com
+5. Enforce HTTPS: ✓
 
 ---
 
-## License
+## 📄 License
 
 © 2025 Ilverzon Zarate. All rights reserved.
 
 ---
 
-## Connect
+## 🔗 Connect
 
-- LinkedIn: https://www.linkedin.com/in/ilverzon/
-- Email: ilverzonzarate@gmail.com
+- **LinkedIn:** [ilverzon](https://www.linkedin.com/in/ilverzon)
+- **Email:** ilverzonzarate@gmail.com
+- **Website:** [zarfet.com](https://zarfet.com)

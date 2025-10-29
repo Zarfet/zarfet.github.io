@@ -6,27 +6,22 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Ilverzon Zarate - QA Analyst</title>
 
-  <!-- Primary Meta Tags -->
-<meta name="title" content="Ilverzon Zarate - QA Analyst">
-<meta name="description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit. QA que pensa com a dissenyador, detectant bugs on l'execució tècnica es troba amb el flux de l'usuari.">
+ <!-- Meta Description -->
+<meta name="description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit. QA que pensa com un dissenyador, detectant bugs on l'execució tècnica es troba amb el flux de l'usuari.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tudominio.com/ca">
+<meta property="og:url" content="https://zarfet.com/ca/">
 <meta property="og:title" content="Ilverzon Zarate - QA Analyst">
-<meta property="og:description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit. QA que pensa com a dissenyador.">
-<meta property="og:image" content="https://tudominio.com/images/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="ca_ES">
-<meta property="og:site_name" content="Ilverzon Zarate Portfolio">
+<meta property="og:description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit. QA que pensa com un dissenyador, detectant bugs on l'execució tècnica es troba amb el flux de l'usuari.">
+<meta property="og:image" content="https://zarfet.com/images/og-image.jpg">
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://tudominio.com/ca">
-<meta property="twitter:title" content="Ilverzon Zarate - QA Analyst">
-<meta property="twitter:description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit.">
-<meta property="twitter:image" content="https://tudominio.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://zarfet.com/minimal-ca-optimized.html">
+<meta name="twitter:title" content="Ilverzon Zarate - QA Analyst">
+<meta name="twitter:description" content="10+ anys assegurant que els productes digitals funcionin i tinguin sentit. QA que pensa com un dissenyador, detectant bugs on l'execució tècnica es troba amb el flux de l'usuari.">
+<meta name="twitter:image" content="https://zarfet.com/images/og-image.jpg">
   
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -149,7 +144,23 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+    /* FIX iOS Safari */
+      -webkit-appearance: none;
+      appearance: none;
+      color: var(--black);
+      outline: none;
+      
     }
+
+  .lang-current:focus {
+    outline: 2px solid var(--black);
+    outline-offset: 2px;
+}
+
+.lang-current * {
+  color: inherit;
+}
 
     .lang-current:hover {
       background: var(--black);
@@ -362,7 +373,7 @@
     .hero-text {
       max-width: 700px;
       padding: 0 4rem;
-      padding-top: 6rem;
+      padding-top: 10rem;
       padding-bottom: 4rem;
       display: flex;
       flex-direction: column;
@@ -691,6 +702,7 @@
       }
 
       .hero-image {
+        padding-top: 100px; 
         min-height: 60vh;
         order: 0;
       }
@@ -734,7 +746,7 @@
       }
 
       .hero-text {
-        padding: 6rem 1.5rem 3rem 1.5rem;
+        padding: 8rem 1.5rem 3rem 1.5rem;
       }
 
       .hero-image {
@@ -797,9 +809,9 @@
         <span class="lang-arrow">▼</span>
       </button>
       <div class="lang-options" id="lang-options" role="menu">
-        <a href="index.html" class="lang-option" role="menuitem">English</a>
-        <a href="minimal-es-optimized.html" class="lang-option" role="menuitem">Español</a>
-        <a href="minimal-ca-optimized.html" class="lang-option active" role="menuitem">Català</a>
+        <a href="/" class="lang-option" role="menuitem">English</a>
+        <a href="/es/" class="lang-option" role="menuitem">Español</a>
+        <a href="/ca/" class="lang-option active" role="menuitem">Català</a>
       </div>
     </div>
   </nav>
@@ -1154,59 +1166,62 @@
       }
     });
 
-    // Language dropdown toggle
-    const langDropdown = document.getElementById('lang-dropdown');
-    const langCurrent = document.getElementById('lang-current');
-    const langOptions = document.getElementById('lang-options');
+// Language dropdown toggle
+const langDropdown = document.getElementById('lang-dropdown');
+const langCurrent = document.getElementById('lang-current');
+const langOptions = document.getElementById('lang-options');
 
-    if (langDropdown && langCurrent && langOptions) {
-      langCurrent.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langDropdown.classList.toggle('active');
-        const isExpanded = langDropdown.classList.contains('active');
-        langCurrent.setAttribute('aria-expanded', isExpanded);
-      });
+if (langDropdown && langCurrent && langOptions) {
+  langCurrent.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('active');
+    const isExpanded = langDropdown.classList.contains('active');
+    langCurrent.setAttribute('aria-expanded', isExpanded);
+  });
 
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!langDropdown.contains(e.target)) {
-          langDropdown.classList.remove('active');
-          langCurrent.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Close dropdown on ESC key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && langDropdown.classList.contains('active')) {
-          langDropdown.classList.remove('active');
-          langCurrent.setAttribute('aria-expanded', 'false');
-          langCurrent.focus();
-        }
-      });
-
-      // Detect current language and update button text
-      const currentPath = window.location.pathname;
-      let currentLang = 'EN';
-
-      if (currentPath.includes('es-optimized')) {
-        currentLang = 'ES';
-      } else if (currentPath.includes('ca-optimized')) {
-        currentLang = 'CA';
-      }
-
-      document.getElementById('lang-text').textContent = currentLang;
-
-      // Highlight active language option
-      const langOptionLinks = document.querySelectorAll('.lang-option');
-      langOptionLinks.forEach(link => {
-        link.classList.remove('active');
-        if ((currentLang === 'EN' && link.href.includes('index.html')) ||
-            (currentLang === 'ES' && link.href.includes('es-optimized')) ||
-            (currentLang === 'CA' && link.href.includes('ca-optimized'))) {
-          link.classList.add('active');
-        }
-      });
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!langDropdown.contains(e.target)) {
+      langDropdown.classList.remove('active');
+      langCurrent.setAttribute('aria-expanded', 'false');
     }
+  });
+
+  // Close dropdown on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && langDropdown.classList.contains('active')) {
+      langDropdown.classList.remove('active');
+      langCurrent.setAttribute('aria-expanded', 'false');
+      langCurrent.focus();
+    }
+  });
+
+  // Detect current language and update button text
+  const currentPath = window.location.pathname;
+  let currentLang = 'EN';
+
+  // Improved detection
+  if (currentPath === '/es/' || currentPath === '/es/index.html' || currentPath.includes('/es/')) {
+    currentLang = 'ES';
+  } else if (currentPath === '/ca/' || currentPath === '/ca/index.html' || currentPath.includes('/ca/')) {
+    currentLang = 'CA';
+  }
+
+  document.getElementById('lang-text').textContent = currentLang;
+
+  // Highlight active language option
+  const langOptionLinks = document.querySelectorAll('.lang-option');
+  langOptionLinks.forEach(link => {
+    link.classList.remove('active');
+    const linkHref = link.getAttribute('href');
+    
+    if ((currentLang === 'EN' && (linkHref === '/' || linkHref === '/index.html')) ||
+        (currentLang === 'ES' && linkHref === '/es/') ||
+        (currentLang === 'CA' && linkHref === '/ca/')) {
+      link.classList.add('active');
+    }
+  });
+}
   </script>
 
 </body>
