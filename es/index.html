@@ -1048,6 +1048,9 @@
   </footer>
 
   <script>
+
+    let scrollPosition = 0;
+
     // Smooth scroll reveal
     const observerOptions = {
       threshold: 0.1,
@@ -1108,9 +1111,6 @@
       mobileBackdrop.classList.add('active');
       mobileBackdrop.setAttribute('aria-hidden', 'false');
       mobileDrawer.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      ocument.documentElement.style.overflow = 'hidden';
-
     }
 
     function closeMobileMenu() {
@@ -1119,8 +1119,6 @@
       mobileBackdrop.classList.remove('active');
       mobileBackdrop.setAttribute('aria-hidden', 'true');
       mobileDrawer.classList.remove('active');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
     }
 
     // Toggle menu on hamburger click
