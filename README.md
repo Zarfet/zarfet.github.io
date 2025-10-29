@@ -2,34 +2,54 @@
 
 Professional portfolio showcasing QA expertise with design thinking approach.
 
-🌐 **Live Site:** [Coming soon]
+Live Site: https://zarfet.github.io
 
 ---
 
-## 🌟 Features
+## Features
 
-- **50/50 Editorial Layout** - Large hero image with professional presence
-- **Trilingual** - English, Spanish, and Catalan versions with dropdown selector
-- **Mobile-Responsive** - iOS-style drawer menu, adapts to all screen sizes
-- **Accessibility-Ready** - ARIA attributes, keyboard navigation (ESC, Tab, Enter)
-- **Performance Optimized** - Minimal JavaScript, fast loading, smooth animations
-- **Strategic Positioning** - "QA that thinks like a designer" differentiation
+- 50/50 Editorial Layout - Large hero image with professional presence
+- Trilingual - English, Spanish, and Catalan versions with dropdown selector
+- Mobile-Responsive - iOS-style drawer menu, adapts to all screen sizes
+- Accessibility-Ready - ARIA attributes, keyboard navigation (ESC, Tab, Enter)
+- Performance Optimized - Async font loading, optimized rendering
+- Strategic Positioning - "QA that thinks like a designer" differentiation
+- Social Sharing - Open Graph meta tags for LinkedIn, Twitter, Facebook
+- CV Download - Multi-language PDF downloads
 
 ---
 
-## 📁 Structure
+## Structure
 
 ```
 ├── index.html                    # English version (landing page)
 ├── minimal-es-optimized.html     # Spanish version
 ├── minimal-ca-optimized.html     # Catalan version
 ├── favicon.svg                   # Site icon
-└── README.md                     # This file
+├── cv/                           # CV files by language
+│   ├── cv-ilverzon-zarate-en.pdf
+│   ├── cv-ilverzon-zarate-es.pdf
+│   └── cv-ilverzon-zarate-ca.pdf
+├── images/
+│   └── og-image.png              # Open Graph share image (1200x630)
+└── README.md
 ```
 
 ---
 
-## 🌍 Language Selector
+## Color Palette
+
+```css
+--black: #0a0a0a       /* Primary background */
+--white: #ffffff       /* Primary text on dark */
+--gray: #252525        /* Body text */
+--light-gray: #f5f5f5  /* Section backgrounds */
+--accent: #a50e1a      /* CTA buttons, highlights */
+```
+
+---
+
+## Language Selector
 
 Professional dropdown menu with automatic language detection:
 - Shows current language (EN/ES/CA)
@@ -40,27 +60,26 @@ Professional dropdown menu with automatic language detection:
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **HTML5 & CSS3** - Semantic structure, custom styling
-- **Vanilla JavaScript** - Scroll animations, mobile menu, language dropdown
-- **Inter Font** - Google Fonts typography
-- **No frameworks** - Pure code, no dependencies
-
----
-
-## 🎨 Key Design Decisions
-
-- **50/50 hero split** - Editorial style, professional presence
-- **Black experience section** - Visual hierarchy and impact
-- **First-person bio** - Direct, human connection
-- **Mobile sheet drawer** - Modern iOS-style navigation
-- **Language dropdown** - Professional 3-language selector
-- **Strategic messaging** - Immediate value communication
+- HTML5 & CSS3 - Semantic structure, custom styling
+- Vanilla JavaScript - Scroll animations, mobile menu, language dropdown
+- Inter Font - Google Fonts typography, async loaded
+- No frameworks - Pure code, no dependencies
 
 ---
 
-## 💻 Local Development
+## Performance Optimizations
+
+- Async font loading (media print hack)
+- Minimal render-blocking resources
+- iOS Safari button styling fixes (-webkit-appearance)
+- Optimized font weights (removed unused 300, 900)
+- Lighthouse Performance Score: 95+
+
+---
+
+## Local Development
 
 ```bash
 # Clone the repository
@@ -74,24 +93,47 @@ No build process needed - pure HTML/CSS/JS.
 
 ---
 
-## 🌍 Deployment
+## Deployment
 
 Deployed on GitHub Pages:
 - Settings → Pages
 - Source: Deploy from branch
 - Branch: main, Folder: / (root)
 
-Site available at: `https://zarfet.github.io`
+Site available at: https://zarfet.github.io
 
 ---
 
-## 📄 License
+## Testing
+
+### Lighthouse
+```bash
+# Performance: 95+
+# Accessibility: 100
+# Best Practices: 100
+# SEO: 100
+```
+
+### Cross-Browser
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari Desktop & iOS
+- Mobile Chrome
+
+### Open Graph Validation
+- Facebook Debugger: https://developers.facebook.com/tools/debug/
+- LinkedIn Inspector: https://www.linkedin.com/post-inspector/
+- Twitter Card Validator: https://cards-dev.twitter.com/validator
+
+---
+
+## License
 
 © 2025 Ilverzon Zarate. All rights reserved.
 
 ---
 
-## 🔗 Connect
+## Connect
 
-- **LinkedIn:** [ilverzon-zarate](https://www.linkedin.com/in/ilverzon/)
-- **Email:** ilverzonzarate@gmail.com
+- LinkedIn: https://www.linkedin.com/in/ilverzon/
+- Email: ilverzonzarate@gmail.com
