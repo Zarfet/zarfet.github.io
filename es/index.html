@@ -1,1235 +1,1346 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Ilverzon Zarate - QA Analyst</title>
-
-<!-- Meta Description -->
-<meta name="description" content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario.">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zarfet.com/es/">
-<meta property="og:title" content="Ilverzon Zarate - QA Analyst">
-<meta property="og:description" content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario.">
-<meta property="og:image" content="https://zarfet.com/images/og-image.jpg">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://zarfet.com/minimal-es-optimized.html">
-<meta name="twitter:title" content="Ilverzon Zarate - QA Analyst">
-<meta name="twitter:description" content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario.">
-<meta name="twitter:image" content="https://zarfet.com/images/og-image.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</noscript>
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --black: #0a0a0a;
-      --white: #ffffff;
-      --gray: #252525;
-      --light-gray: #f5f5f5;
-      --accent: #a50e1a;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-      font-size: 16px;
-      overflow-x: hidden;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 2rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-logo {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-logo img {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--gray);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links a:hover {
-      color: var(--black);
-    }
-
-    .nav-links a.active {
-      color: var(--black);
-      font-weight: 700;
-      position: relative;
-    }
-
-    .nav-links a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    /* Language Dropdown */
-    .lang-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .lang-current {
-      background: none;
-      border: 2px solid var(--black);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    
-      /* FIX iOS Safari */
-      -webkit-appearance: none;
-      appearance: none;
-      color: var(--black);
-      outline: none;
-
-    }
-
-    .lang-current:focus {
-      outline: 2px solid var(--black);
-      outline-offset: 2px;
-}
-
-.lang-current * {
-  color: inherit;
-}
-
-    .lang-current:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .lang-arrow {
-      font-size: 0.7rem;
-      transition: transform 0.3s ease;
-    }
-
-    .lang-dropdown.active .lang-arrow {
-      transform: rotate(180deg);
-    }
-
-    .lang-options {
-      position: absolute;
-      top: calc(100% + 0.5rem);
-      right: 0;
-      background: var(--white);
-      border: 2px solid var(--black);
-      border-radius: 8px;
-      min-width: 150px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .lang-dropdown.active .lang-options {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .lang-option {
-      display: block;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      color: var(--black);
-      transition: background 0.2s ease;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-
-    .lang-option:hover {
-      background: var(--light-gray);
-    }
-
-    .lang-option:first-child {
-      border-radius: 6px 6px 0 0;
-    }
-
-    .lang-option:last-child {
-      border-radius: 0 0 6px 6px;
-    }
-
-    .lang-option.active {
-      font-weight: 700;
-      background: var(--light-gray);
-    }
-
-    .lang-option.active::before {
-      content: "✓ ";
-      color: var(--black);
-    }
-
-    /* Mobile Menu */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 1001;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--black);
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(7px, 7px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .mobile-menu-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      pointer-events: none;
-    }
-
-    .mobile-menu-backdrop.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .mobile-menu-drawer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      border-radius: 24px 24px 0 0;
-      padding: 2rem 2rem 3rem;
-      z-index: 1000;
-      transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
-      max-height: 70vh;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-      visibility: hidden;
-    }
-
-    .mobile-menu-drawer.active {
-      transform: translateY(0);
-      visibility: visible;
-    }
-
-    .mobile-menu-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .mobile-menu-links li {
-      border-bottom: 1px solid var(--light-gray);
-    }
-
-    .mobile-menu-links li:last-child {
-      border-bottom: none;
-    }
-
-    .mobile-menu-links a {
-      display: block;
-      padding: 1.2rem 0;
-      text-decoration: none;
-      color: var(--black);
-      font-size: 1.1rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-menu-links a.active {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* Sections */
-    section {
-      min-height: 100vh;
-      padding: 8rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 100%;
-      width: 100%;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: stretch;
-      min-height: 100vh;
-    }
-
-    .hero-text {
-      max-width: 700px;
-      padding: 0 4rem;
-      padding-top: 10rem;
-      padding-bottom: 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: var(--light-gray);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-
-    .hero-image-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10rem;
-      color: var(--gray);
-      font-weight: 900;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 6.5rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 2rem;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      color: var(--gray);
-      font-weight: 400;
-      margin-bottom: 3rem;
-      max-width: 700px;
-    }
-
-    .hero-tags {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-
-    .tag {
-      padding: 0.5rem 1.5rem;
-      border: 1px solid var(--black);
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: var(--black);
-      color: var(--white);
-      padding: 1.2rem 3rem;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* Services Section */
-    .services {
-      background: var(--light-gray);
-    }
-
-    .section-title {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 4rem;
-    }
-
-    .services-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 4rem;
-    }
-
-    .service-item {
-      padding: 2rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      font-weight: 500;
-      color: var(--gray);
-      transition: all 0.3s ease;
-    }
-
-    .service-item::before {
-      content: '•';
-      margin-right: 1rem;
-      color: var(--black);
-      font-size: 1.5rem;
-    }
-
-    .service-item:hover {
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    /* About Section */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .about-intro {
-      position: sticky;
-      top: 10rem;
-    }
-
-    .about-intro h2 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .about-content p {
-      font-size: 1.2rem;
-      color: var(--gray);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-
-    .about-content p strong {
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    /* Experience Section */
-    .experience {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .experience .section-title {
-      color: var(--white);
-    }
-
-    .experience-list {
-      display: grid;
-      gap: 3rem;
-    }
-
-    .experience-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 4rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .experience-date {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .experience-content h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
-
-    .experience-company {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .experience-description {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* Skills Section */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      margin-top: 4rem;
-    }
-
-    .skill-category h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .skill-list span {
-      color: var(--gray);
-      font-size: 1rem;
-      padding: 0.5rem 0;
-      transition: color 0.3s ease;
-    }
-
-    .skill-list span:hover {
-      color: var(--black);
-    }
-
-    /* Contact Section */
-    .contact {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 2rem;
-    }
-
-    .contact p {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 4rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
-      padding: 1.2rem 3rem;
-      border: 1px solid var(--white);
-      border-radius: 50px;
-      text-decoration: none;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .contact-link:hover {
-      background: var(--white);
-      color: var(--black);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--black);
-      color: rgba(255, 255, 255, 0.5);
-      text-align: center;
-      padding: 3rem 2rem;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 968px) {
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ilverzon Zarate - QA Analyst</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zarfet.com/es/" />
+    <meta property="og:title" content="Ilverzon Zarate - QA Analyst" />
+    <meta
+      property="og:description"
+      content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario."
+    />
+    <meta
+      property="og:image"
+      content="https://zarfet.com/images/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://zarfet.com/minimal-es-optimized.html"
+    />
+    <meta name="twitter:title" content="Ilverzon Zarate - QA Analyst" />
+    <meta
+      name="twitter:description"
+      content="10+ años asegurando que los productos digitales funcionen y tengan sentido. QA que piensa como diseñador, detectando bugs donde la ejecución técnica se encuentra con el flujo del usuario."
+    />
+    <meta
+      name="twitter:image"
+      content="https://zarfet.com/images/og-image.jpg"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray: #252525;
+        --light-gray: #f5f5f5;
+        --accent: #a50e1a;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--white);
+        color: var(--black);
+        line-height: 1.6;
+        font-size: 16px;
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
       nav {
-        padding: 1.5rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-logo {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo img {
+        height: 40px;
+        width: auto;
+        display: block;
       }
 
       .nav-links {
-        gap: 1.5rem;
+        display: flex;
+        gap: 3rem;
+        list-style: none;
       }
 
+      .nav-links a {
+        text-decoration: none;
+        color: var(--gray);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links a:hover {
+        color: var(--black);
+      }
+
+      .nav-links a.active {
+        color: var(--black);
+        font-weight: 700;
+        position: relative;
+      }
+
+      .nav-links a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      /* Language Dropdown */
+      .lang-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .lang-current {
+        background: none;
+        border: 2px solid var(--black);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        /* FIX iOS Safari */
+        -webkit-appearance: none;
+        appearance: none;
+        color: var(--black);
+        outline: none;
+      }
+
+      .lang-current:focus {
+        outline: 2px solid var(--black);
+        outline-offset: 2px;
+      }
+
+      .lang-current * {
+        color: inherit;
+      }
+
+      .lang-current:hover {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .lang-arrow {
+        font-size: 0.7rem;
+        transition: transform 0.3s ease;
+      }
+
+      .lang-dropdown.active .lang-arrow {
+        transform: rotate(180deg);
+      }
+
+      .lang-options {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--white);
+        border: 2px solid var(--black);
+        border-radius: 8px;
+        min-width: 150px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .lang-dropdown.active .lang-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .lang-option {
+        display: block;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        color: var(--black);
+        transition: background 0.2s ease;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .lang-option:hover {
+        background: var(--light-gray);
+      }
+
+      .lang-option:first-child {
+        border-radius: 6px 6px 0 0;
+      }
+
+      .lang-option:last-child {
+        border-radius: 0 0 6px 6px;
+      }
+
+      .lang-option.active {
+        font-weight: 700;
+        background: var(--light-gray);
+      }
+
+      .lang-option.active::before {
+        content: "✓ ";
+        color: var(--black);
+      }
+
+      /* Mobile Menu */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+        pointer-events: none;
+      }
+
+      .mobile-menu-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-menu-drawer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-radius: 24px 24px 0 0;
+        padding: 2rem 2rem 3rem;
+        z-index: 1000;
+        transform: translateY(100%);
+        transition:
+          transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0.4s ease;
+        max-height: 70vh;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        visibility: hidden;
+      }
+
+      .mobile-menu-drawer.active {
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .mobile-menu-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .mobile-menu-links li {
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .mobile-menu-links li:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-menu-links a {
+        display: block;
+        padding: 1.2rem 0;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-links a.active {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* Sections */
       section {
-        padding: 6rem 2rem;
+        min-height: 100vh;
+        padding: 8rem 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Hero Section */
       .hero {
-        height: auto;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
       }
 
       .hero-content {
-        grid-template-columns: 1fr;
-        height: auto;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
         min-height: 100vh;
       }
 
       .hero-text {
-        padding: 8rem 2rem 4rem 2rem;
-        order: 1;
+        max-width: 700px;
+        padding: 0 4rem;
+        padding-top: 10rem;
+        padding-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .hero-image {
-        padding-top: 100px; 
-        min-height: 60vh;
-        order: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--light-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
       }
 
       .hero-image-placeholder {
-        font-size: 6rem;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10rem;
+        color: var(--gray);
+        font-weight: 900;
       }
 
+      .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 6.5rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        color: var(--gray);
+        font-weight: 400;
+        margin-bottom: 3rem;
+        max-width: 700px;
+      }
+
+      .hero-tags {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .tag {
+        padding: 0.5rem 1.5rem;
+        border: 1px solid var(--black);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .btn-primary {
+        background: var(--black);
+        color: var(--white);
+        padding: 1.2rem 3rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* Services Section */
+      .services {
+        background: var(--light-gray);
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        margin-bottom: 4rem;
+      }
+
+      .services-list {
+        display: grid;
+        gap: 1rem;
+        margin-top: 4rem;
+      }
+
+      .service-item {
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        font-weight: 500;
+        color: var(--gray);
+        transition: all 0.3s ease;
+      }
+
+      .service-item::before {
+        content: "•";
+        margin-right: 1rem;
+        color: var(--black);
+        font-size: 1.5rem;
+      }
+
+      .service-item:hover {
+        color: var(--black);
+        font-weight: 600;
+      }
+
+      /* About Section */
       .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 6rem;
+        align-items: start;
       }
 
       .about-intro {
-        position: relative;
-        top: 0;
+        position: sticky;
+        top: 10rem;
+      }
+
+      .about-intro h2 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .about-content p {
+        font-size: 1.2rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .about-content p strong {
+        color: var(--black);
+        font-weight: 600;
+      }
+
+      /* Experience Section */
+      .experience {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .experience .section-title {
+        color: var(--white);
+      }
+
+      .experience-list {
+        display: grid;
+        gap: 3rem;
       }
 
       .experience-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .experience-item {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 4rem;
+        padding: 2rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
+      .experience-date {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+      }
+
+      .experience-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+
+      .experience-company {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .experience-description {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* Skills Section */
       .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
       }
 
-      .menu-toggle {
+      .skill-category h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      .skill-list {
         display: flex;
         flex-direction: column;
+        gap: 0.8rem;
       }
 
-      .hero-text {
-        padding: 8rem 1.5rem 3rem 1.5rem;
+      .skill-list span {
+        color: var(--gray);
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
       }
 
-      .hero-image {
-        min-height: 50vh;
+      .skill-list span:hover {
+        color: var(--black);
       }
 
-      .hero-image-placeholder {
-        font-size: 4rem;
+      /* Contact Section */
+      .contact {
+        background: var(--black);
+        color: var(--white);
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        margin-bottom: 2rem;
+      }
+
+      .contact p {
+        color: rgba(255, 255, 255, 0.7);
       }
 
       .contact-links {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
       }
-    }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+      .contact-link {
+        padding: 1.2rem 3rem;
+        border: 1px solid var(--white);
+        border-radius: 50px;
+        text-decoration: none;
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      .contact-link:hover {
+        background: var(--white);
+        color: var(--black);
       }
-    }
 
-    .fade-in {
-      animation: fadeInUp 0.8s ease forwards;
-    }
-  </style>
-</head>
+      /* Footer */
+      footer {
+        background: var(--black);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 3rem 2rem;
+        font-size: 0.9rem;
+      }
 
-<body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-logo">
-      <!-- Text logo -->
-      Ilverzon Zarate
-      <!-- To use image logo instead, replace above with: -->
-      <!-- <img src="./images/logo.png" alt="Ilverzon Zarate"> -->
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Inicio</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#experience">Experiencia</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-    <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu-drawer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <!-- Language Selector Dropdown -->
-    <div class="lang-dropdown" id="lang-dropdown">
-      <button class="lang-current" id="lang-current" aria-label="Seleccionar idioma" aria-expanded="false">
-        <span id="lang-text">ES</span>
-        <span class="lang-arrow">▼</span>
+      /* Responsive */
+      @media (max-width: 968px) {
+        nav {
+          padding: 1.5rem 2rem;
+        }
+
+        .nav-links {
+          gap: 1.5rem;
+        }
+
+        section {
+          padding: 6rem 2rem;
+        }
+
+        .hero {
+          height: auto;
+          min-height: 100vh;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          height: auto;
+          min-height: 100vh;
+        }
+
+        .hero-text {
+          padding: 8rem 2rem 4rem 2rem;
+          order: 1;
+        }
+
+        .hero-image {
+          padding-top: 100px;
+          min-height: 60vh;
+          order: 0;
+        }
+
+        .hero-image-placeholder {
+          font-size: 6rem;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .about-intro {
+          position: relative;
+          top: 0;
+        }
+
+        .experience-item {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .experience-item {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .hero-text {
+          padding: 8rem 1.5rem 3rem 1.5rem;
+        }
+
+        .hero-image {
+          min-height: 50vh;
+        }
+
+        .hero-image-placeholder {
+          font-size: 4rem;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-logo">
+        <!-- Text logo -->
+        Ilverzon Zarate
+        <!-- To use image logo instead, replace above with: -->
+        <!-- <img src="./images/logo.png" alt="Ilverzon Zarate"> -->
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <button
+        class="menu-toggle"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="mobile-menu-drawer"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <div class="lang-options" id="lang-options" role="menu">
-        <a href="/" class="lang-option" role="menuitem">English</a>
-        <a href="/es/" class="lang-option active" role="menuitem">Español</a>
-        <a href="/ca/" class="lang-option" role="menuitem">Català</a>
+      <!-- Language Selector Dropdown -->
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button
+          class="lang-current"
+          id="lang-current"
+          aria-label="Seleccionar idioma"
+          aria-expanded="false"
+        >
+          <span id="lang-text">ES</span>
+          <span class="lang-arrow">▼</span>
+        </button>
+        <div class="lang-options" id="lang-options" role="menu">
+          <a href="/" class="lang-option" role="menuitem">English</a>
+          <a href="/es/" class="lang-option active" role="menuitem">Español</a>
+          <a href="/ca/" class="lang-option" role="menuitem">Català</a>
+        </div>
       </div>
+    </nav>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div
+      class="mobile-menu-drawer"
+      id="mobile-menu-drawer"
+      role="navigation"
+      aria-label="Navegación móvil"
+    >
+      <ul class="mobile-menu-links">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
     </div>
-  </nav>
 
-  <!-- Mobile Menu Backdrop -->
-  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content fade-in">
+        <div class="hero-text">
+          <h1>QA que piensa<br />como diseñador</h1>
+          <p class="hero-subtitle">
+            Encuentro bugs que otros no ven porque entiendo tanto el código como
+            la experiencia de usuario. 10+ años asegurando que los productos
+            digitales funcionen, y tengan sentido.
+          </p>
+          <div class="hero-tags">
+            <span class="tag">Visual</span>
+            <span class="tag">Técnico</span>
+            <span class="tag">Estratégico</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#contact" class="btn-primary">Trabajemos juntos</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
+          <div class="hero-image-placeholder">IZ</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Mobile Menu Drawer -->
-  <div class="mobile-menu-drawer" id="mobile-menu-drawer" role="navigation" aria-label="Navegación móvil">
-    <ul class="mobile-menu-links">
-      <li><a href="#home">Inicio</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#experience">Experiencia</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content fade-in">
-      <div class="hero-text">
-        <h1>QA que piensa<br>como diseñador</h1>
-        <p class="hero-subtitle">
-          Encuentro bugs que otros no ven porque entiendo tanto el código como la experiencia de usuario. 
-          10+ años asegurando que los productos digitales funcionen, y tengan sentido.
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title">¿Qué puedo hacer por ti?</h2>
+        <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px">
+          Vamos directo al punto.
         </p>
-        <div class="hero-tags">
-          <span class="tag">Visual</span>
-          <span class="tag">Técnico</span>
-          <span class="tag">Estratégico</span>
-        </div>
-        <div class="hero-cta">
-          <a href="#contact" class="btn-primary">Trabajemos juntos</a>
+        <div class="services-list">
+          <div class="service-item">
+            Pruebo funcionalidad Y experiencia de usuario, detectando problemas
+            donde la ejecución técnica se encuentra con el flujo del usuario
+          </div>
+          <div class="service-item">
+            Diseño estrategias de QA desde cero, estableciendo procesos que
+            ayudan a los equipos a lanzar más rápido sin romper nada
+          </div>
+          <div class="service-item">
+            Leo código para detectar problemas temprano. Entender la
+            arquitectura me ayuda a encontrar fallas antes de que lleguen a
+            producción
+          </div>
+          <div class="service-item">
+            Trabajo con herramientas modernas (Selenium, Cypress, JIRA, Git)
+            pero mi valor es la perspectiva híbrida: diseño + tech + QA
+          </div>
         </div>
       </div>
-      <div class="hero-image">
-        <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
-        <div class="hero-image-placeholder">IZ</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">¿Qué puedo hacer por ti?</h2>
-      <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px;">
-        Vamos directo al punto.
-      </p>
-      <div class="services-list">
-        <div class="service-item">Pruebo funcionalidad Y experiencia de usuario, detectando problemas donde la ejecución técnica se encuentra con el flujo del usuario</div>
-        <div class="service-item">Diseño estrategias de QA desde cero, estableciendo procesos que ayudan a los equipos a lanzar más rápido sin romper nada</div>
-        <div class="service-item">Leo código para detectar problemas temprano. Entender la arquitectura me ayuda a encontrar fallas antes de que lleguen a producción</div>
-        <div class="service-item">Trabajo con herramientas modernas (Selenium, Cypress, JIRA, Git) pero mi valor es la perspectiva híbrida: diseño + tech + QA</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-intro">
-          <h2>Donde la calidad técnica se encuentra con la experiencia de usuario</h2>
-        </div>
-        <div class="about-content">
-          <p>
-            Mi curiosidad sobre cómo funcionaban las cosas detrás de las pantallas me llevó al Quality Assurance. Esa transición se convirtió en mi ventaja.
-          </p>
-          <p>
-            La mayoría de analistas QA prueban funcionalidad. Yo pruebo funcionalidad Y experiencia. Leo código, entiendo arquitectura de sistemas y uso herramientas modernas de testing, pero mi diferenciador es detectar problemas donde la ejecución técnica se encuentra con el flujo del usuario.
-          </p>
-          <p>
-            He pasado 10+ años liderando estrategias de QA para productos digitales complejos: plataformas e-commerce que manejan millones de transacciones, apps fintech, aplicaciones de medios. Trabajo con Selenium, Cypress y frameworks ágiles, pero el verdadero valor es mi perspectiva híbrida.
-          </p>
-          <p>
-            Una funcionalidad puede pasar todas las pruebas técnicas y aún así crear una experiencia terrible. Yo soy la persona que detecta esa desconexión.
-          </p>
-          <p>
-            Si necesitas QA que va más allá de "¿funciona?" hacia "¿tiene sentido?", hablemos.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="experience" id="experience">
-    <div class="container">
-      <h2 class="section-title">Experiencia</h2>
-      <div class="experience-list">
-        
-        <div class="experience-item">
-          <div class="experience-date">2020 — Presente</div>
-          <div class="experience-content">
-            <h3>Senior Quality Assurance Analyst</h3>
-            <div class="experience-company">Huge · Colombia</div>
-            <p class="experience-description">
-              Liderando estrategias de QA para productos digitales complejos. Especializado en testing front-end y back-end, 
-              trabajando con equipos distribuidos para establecer procesos de calidad que balancean velocidad y confiabilidad. 
-              Enfoque en detectar tanto bugs técnicos como problemas de UX que impactan la experiencia del usuario.
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-intro">
+            <h2>
+              Donde la calidad técnica se encuentra con la experiencia de
+              usuario
+            </h2>
+          </div>
+          <div class="about-content">
+            <p>
+              Mi curiosidad sobre cómo funcionaban las cosas detrás de las
+              pantallas me llevó al Quality Assurance. Esa transición se
+              convirtió en mi ventaja.
+            </p>
+            <p>
+              La mayoría de analistas QA prueban funcionalidad. Yo pruebo
+              funcionalidad Y experiencia. Leo código, entiendo arquitectura de
+              sistemas y uso herramientas modernas de testing, pero mi
+              diferenciador es detectar problemas donde la ejecución técnica se
+              encuentra con el flujo del usuario.
+            </p>
+            <p>
+              He pasado 10+ años liderando estrategias de QA para productos
+              digitales complejos: plataformas e-commerce que manejan millones
+              de transacciones, apps fintech, aplicaciones de medios. Trabajo
+              con Selenium, Cypress y frameworks ágiles, pero el verdadero valor
+              es mi perspectiva híbrida.
+            </p>
+            <p>
+              Una funcionalidad puede pasar todas las pruebas técnicas y aún así
+              crear una experiencia terrible. Yo soy la persona que detecta esa
+              desconexión.
+            </p>
+            <p>
+              Si necesitas QA que va más allá de "¿funciona?" hacia "¿tiene
+              sentido?", hablemos.
             </p>
           </div>
         </div>
-
-        <div class="experience-item">
-          <div class="experience-date">2018 — 2020</div>
-          <div class="experience-content">
-            <h3>Senior Quality Control Analyst</h3>
-            <div class="experience-company">Globant · Buenos Aires, Argentina</div>
-            <p class="experience-description">
-              Diseñé y supervisé estrategias de testing integrales para múltiples tipos de proyectos. Lideré la 
-              organización de pruebas unitarias, de integración, funcionales, de sistema, de carga y usabilidad. Coordiné 
-              esfuerzos de QA a través de zonas horarias para clientes internacionales.
-            </p>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-date">2015 — 2018</div>
-          <div class="experience-content">
-            <h3>Quality Control Analyst</h3>
-            <div class="experience-company">Globant · Bogotá, Colombia</div>
-            <p class="experience-description">
-              Especialista en equipos de integración, diseñando estrategias de pruebas y su ejecución. Gestioné herramientas 
-              de casos de prueba automatizados y funcionales, estableciendo frameworks que mejoraron la eficiencia del equipo y la calidad del producto.
-            </p>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-date">2014 — 2015</div>
-          <div class="experience-content">
-            <h3>Sr. Technical QA Analyst</h3>
-            <div class="experience-company">VML · Colombia</div>
-            <p class="experience-description">
-              Enfocado en calidad y atención al detalle para campañas digitales y plataformas. Mantuve comunicación efectiva 
-              entre stakeholders técnicos y no técnicos, asegurando claridad en el estado de los proyectos.
-            </p>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-date">2012 — 2014</div>
-          <div class="experience-content">
-            <h3>QA Analyst</h3>
-            <div class="experience-company">VML · Colombia</div>
-            <p class="experience-description">
-              Inicié mi carrera en QA después de la transición desde diseño gráfico. Supervisé testing de productos, diseñé 
-              planes de prueba y coordiné con ingenieros de testing. Este período estableció la base para mi 
-              enfoque híbrido de quality assurance.
-            </p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
-    <div class="container">
-      <h2 class="section-title">Habilidades</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Testing & QA</h3>
-          <div class="skill-list">
-            <span>Testing Manual</span>
-            <span>Diseño de Estrategias de Testing</span>
-            <span>ISTQB Certified</span>
-            <span>Testing Front-end</span>
-            <span>Testing Back-end</span>
-            <span>Testing Responsivo</span>
-            <span>Testing UX</span>
-            <span>A11Y (Accesibilidad)</span>
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="section-title">Experiencia</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="experience-date">2020 — Presente</div>
+            <div class="experience-content">
+              <h3>Senior Quality Assurance Analyst</h3>
+              <div class="experience-company">Huge · Colombia</div>
+              <p class="experience-description">
+                Liderando estrategias de QA para productos digitales complejos.
+                Especializado en testing front-end y back-end, trabajando con
+                equipos distribuidos para establecer procesos de calidad que
+                balancean velocidad y confiabilidad. Enfoque en detectar tanto
+                bugs técnicos como problemas de UX que impactan la experiencia
+                del usuario.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="skill-category">
-          <h3>Metodologías</h3>
-          <div class="skill-list">
-            <span>Agile / Scrum</span>
-            <span>CI/CD</span>
-            <span>Test-Driven Development</span>
-            <span>Gestión de Riesgos</span>
-            <span>Establecimiento de Procesos</span>
+
+          <div class="experience-item">
+            <div class="experience-date">2018 — 2020</div>
+            <div class="experience-content">
+              <h3>Senior Quality Control Analyst</h3>
+              <div class="experience-company">
+                Globant · Buenos Aires, Argentina
+              </div>
+              <p class="experience-description">
+                Diseñé y supervisé estrategias de testing integrales para
+                múltiples tipos de proyectos. Lideré la organización de pruebas
+                unitarias, de integración, funcionales, de sistema, de carga y
+                usabilidad. Coordiné esfuerzos de QA a través de zonas horarias
+                para clientes internacionales.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="skill-category">
-          <h3>Herramientas & Tech</h3>
-          <div class="skill-list">
-            <span>Selenium</span>
-            <span>Cypress</span>
-            <span>Postman</span>
-            <span>JIRA</span>
-            <span>Git</span>
-            <span>SQL</span>
-            <span>Lectura de Código (JS, HTML, CSS)</span>
+
+          <div class="experience-item">
+            <div class="experience-date">2015 — 2018</div>
+            <div class="experience-content">
+              <h3>Quality Control Analyst</h3>
+              <div class="experience-company">Globant · Bogotá, Colombia</div>
+              <p class="experience-description">
+                Especialista en equipos de integración, diseñando estrategias de
+                pruebas y su ejecución. Gestioné herramientas de casos de prueba
+                automatizados y funcionales, estableciendo frameworks que
+                mejoraron la eficiencia del equipo y la calidad del producto.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="skill-category">
-          <h3>Diseño & UX</h3>
-          <div class="skill-list">
-            <span>Figma</span>
-            <span>Adobe Creative Suite</span>
-            <span>Diseño Responsivo</span>
-            <span>Comunicación Gráfica</span>
-            <span>Análisis de Flujos de Usuario</span>
+
+          <div class="experience-item">
+            <div class="experience-date">2014 — 2015</div>
+            <div class="experience-content">
+              <h3>Sr. Technical QA Analyst</h3>
+              <div class="experience-company">VML · Colombia</div>
+              <p class="experience-description">
+                Enfocado en calidad y atención al detalle para campañas
+                digitales y plataformas. Mantuve comunicación efectiva entre
+                stakeholders técnicos y no técnicos, asegurando claridad en el
+                estado de los proyectos.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-date">2012 — 2014</div>
+            <div class="experience-content">
+              <h3>QA Analyst</h3>
+              <div class="experience-company">VML · Colombia</div>
+              <p class="experience-description">
+                Inicié mi carrera en QA después de la transición desde diseño
+                gráfico. Supervisé testing de productos, diseñé planes de prueba
+                y coordiné con ingenieros de testing. Este período estableció la
+                base para mi enfoque híbrido de quality assurance.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>¿Hablamos?</h2>
-      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
-        ¿Tienes un proyecto en mente? Estoy disponible para proyectos freelance, consultoría y colaboraciones.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:ilverzonzarate@gmail.com" class="contact-link">Email</a>
-        <a href="https://www.linkedin.com/in/ilverzon" target="_blank" class="contact-link">LinkedIn</a>
-        <a href="/cv/cv-ilverzon-zarate-es.pdf" class="contact-link" download="Ilverzon-Zarate-CV-ES.pdf">Descargar CV</a>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Testing & QA</h3>
+            <div class="skill-list">
+              <span>Testing Manual</span>
+              <span>Diseño de Estrategias de Testing</span>
+              <span>ISTQB Certified</span>
+              <span>Testing Front-end</span>
+              <span>Testing Back-end</span>
+              <span>Testing Responsivo</span>
+              <span>Testing UX</span>
+              <span>A11Y (Accesibilidad)</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Metodologías</h3>
+            <div class="skill-list">
+              <span>Agile / Scrum</span>
+              <span>CI/CD</span>
+              <span>Test-Driven Development</span>
+              <span>Gestión de Riesgos</span>
+              <span>Establecimiento de Procesos</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Herramientas & Tech</h3>
+            <div class="skill-list">
+              <span>Selenium</span>
+              <span>Cypress</span>
+              <span>Postman</span>
+              <span>JIRA</span>
+              <span>Git</span>
+              <span>SQL</span>
+              <span>Lectura de Código (JS, HTML, CSS)</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Diseño & UX</h3>
+            <div class="skill-list">
+              <span>Figma</span>
+              <span>Adobe Creative Suite</span>
+              <span>Diseño Responsivo</span>
+              <span>Comunicación Gráfica</span>
+              <span>Análisis de Flujos de Usuario</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Ilverzon Zarate. Todos los derechos reservados.</p>
-  </footer>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>¿Hablamos?</h2>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto">
+          ¿Tienes un proyecto en mente? Estoy disponible para proyectos
+          freelance, consultoría y colaboraciones.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:ilverzonzarate@gmail.com" class="contact-link"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/ilverzon"
+            target="_blank"
+            class="contact-link"
+            >LinkedIn</a
+          >
+          <a
+            href="/cv/cv-ilverzon-zarate-es.pdf"
+            class="contact-link"
+            download="Ilverzon-Zarate-CV-ES.pdf"
+            >Descargar CV</a
+          >
+        </div>
+      </div>
+    </section>
 
-  <script>
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Ilverzon Zarate. Todos los derechos reservados.</p>
+    </footer>
 
-    let scrollPosition = 0;
+    <script>
+      // Smooth scroll reveal
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
-    // Smooth scroll reveal
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
+      document
+        .querySelectorAll(".experience-item, .service-item, .skill-category")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
 
-    document.querySelectorAll('.experience-item, .service-item, .skill-category').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.6s ease';
-      observer.observe(el);
-    });
+      // Navigation active state
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
 
-    // Navigation active state
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+      function setActiveLink() {
+        let current = "";
 
-    function setActiveLink() {
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 100)) {
-          current = section.getAttribute('id');
-        }
-      });
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', setActiveLink);
-    window.addEventListener('load', setActiveLink);
-
-    // Mobile menu functionality
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileBackdrop = document.querySelector('.mobile-menu-backdrop');
-    const mobileDrawer = document.querySelector('.mobile-menu-drawer');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-
-    function openMobileMenu() {
-      menuToggle.classList.add('active');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      mobileBackdrop.classList.add('active');
-      mobileBackdrop.setAttribute('aria-hidden', 'false');
-      mobileDrawer.classList.add('active');
-    }
-
-    function closeMobileMenu() {
-      menuToggle.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      mobileBackdrop.classList.remove('active');
-      mobileBackdrop.setAttribute('aria-hidden', 'true');
-      mobileDrawer.classList.remove('active');
-    }
-
-    // Toggle menu on hamburger click
-    menuToggle.addEventListener('click', () => {
-      if (menuToggle.classList.contains('active')) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
       }
-    });
 
-    // Close menu on backdrop click
-    mobileBackdrop.addEventListener('click', closeMobileMenu);
+      window.addEventListener("scroll", setActiveLink);
+      window.addEventListener("load", setActiveLink);
 
-    // Close menu when a link is clicked
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
+      // Mobile menu functionality
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileBackdrop = document.querySelector(".mobile-menu-backdrop");
+      const mobileDrawer = document.querySelector(".mobile-menu-drawer");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu-links a");
 
-    // Update mobile menu active state on scroll
-    function updateMobileMenuActive() {
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= (sectionTop - 100)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      mobileMenuLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', updateMobileMenuActive);
-    window.addEventListener('load', updateMobileMenuActive);
-
-    // Close menu on escape key (accessibility)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
-        closeMobileMenu();
+      function openMobileMenu() {
+        menuToggle.classList.add("active");
+        menuToggle.setAttribute("aria-expanded", "true");
+        mobileBackdrop.classList.add("active");
+        mobileBackdrop.setAttribute("aria-hidden", "false");
+        mobileDrawer.classList.add("active");
+        document.body.style.overflow = "hidden";
       }
-    });
 
-// Language dropdown toggle
-const langDropdown = document.getElementById('lang-dropdown');
-const langCurrent = document.getElementById('lang-current');
-const langOptions = document.getElementById('lang-options');
+      function closeMobileMenu() {
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        mobileBackdrop.classList.remove("active");
+        mobileBackdrop.setAttribute("aria-hidden", "true");
+        mobileDrawer.classList.remove("active");
+        document.body.style.overflow = "";
+      }
 
-if (langDropdown && langCurrent && langOptions) {
-  langCurrent.addEventListener('click', (e) => {
-    e.stopPropagation();
+      // Toggle menu on hamburger click
+      menuToggle.addEventListener("click", () => {
+        if (menuToggle.classList.contains("active")) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
 
-    // Close mobile menu if open
-    if (menuToggle.classList.contains('active')) {
-     closeMobileMenu();
-    }
+      // Close menu on backdrop click
+      mobileBackdrop.addEventListener("click", closeMobileMenu);
 
-    langDropdown.classList.toggle('active');
-    const isExpanded = langDropdown.classList.contains('active');
-    langCurrent.setAttribute('aria-expanded', isExpanded);
-  });
+      // Close menu when a link is clicked
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
 
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!langDropdown.contains(e.target)) {
-      langDropdown.classList.remove('active');
-      langCurrent.setAttribute('aria-expanded', 'false');
-    }
-  });
+      // Update mobile menu active state on scroll
+      function updateMobileMenuActive() {
+        let current = "";
 
-  // Close dropdown on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && langDropdown.classList.contains('active')) {
-      langDropdown.classList.remove('active');
-      langCurrent.setAttribute('aria-expanded', 'false');
-      langCurrent.focus();
-    }
-  });
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
 
-  // Detect current language and update button text
-  const currentPath = window.location.pathname;
-  let currentLang = 'EN';
+        mobileMenuLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      }
 
-  // Improved detection
-  if (currentPath === '/es/' || currentPath === '/es/index.html' || currentPath.includes('/es/')) {
-    currentLang = 'ES';
-  } else if (currentPath === '/ca/' || currentPath === '/ca/index.html' || currentPath.includes('/ca/')) {
-    currentLang = 'CA';
-  }
+      window.addEventListener("scroll", updateMobileMenuActive);
+      window.addEventListener("load", updateMobileMenuActive);
 
-  document.getElementById('lang-text').textContent = currentLang;
+      // Close menu on escape key (accessibility)
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menuToggle.classList.contains("active")) {
+          closeMobileMenu();
+        }
+      });
 
-  // Highlight active language option
-  const langOptionLinks = document.querySelectorAll('.lang-option');
-  langOptionLinks.forEach(link => {
-    link.classList.remove('active');
-    const linkHref = link.getAttribute('href');
-    
-    if ((currentLang === 'EN' && (linkHref === '/' || linkHref === '/index.html')) ||
-        (currentLang === 'ES' && linkHref === '/es/') ||
-        (currentLang === 'CA' && linkHref === '/ca/')) {
-      link.classList.add('active');
-    }
-  });
-}
-  </script>
+      // Language dropdown toggle
+      const langDropdown = document.getElementById("lang-dropdown");
+      const langCurrent = document.getElementById("lang-current");
+      const langOptions = document.getElementById("lang-options");
 
-</body>
+      if (langDropdown && langCurrent && langOptions) {
+        langCurrent.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Close mobile menu if open
+          if (menuToggle.classList.contains("active")) {
+            closeMobileMenu();
+          }
+
+          langDropdown.classList.toggle("active");
+          const isExpanded = langDropdown.classList.contains("active");
+          langCurrent.setAttribute("aria-expanded", isExpanded);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!langDropdown.contains(e.target)) {
+            langDropdown.classList.remove("active");
+            langCurrent.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Close dropdown on ESC key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && langDropdown.classList.contains("active")) {
+            langDropdown.classList.remove("active");
+            langCurrent.setAttribute("aria-expanded", "false");
+            langCurrent.focus();
+          }
+        });
+
+        // Detect current language and update button text
+        const currentPath = window.location.pathname;
+        let currentLang = "EN";
+
+        // Improved detection
+        if (
+          currentPath === "/es/" ||
+          currentPath === "/es/index.html" ||
+          currentPath.includes("/es/")
+        ) {
+          currentLang = "ES";
+        } else if (
+          currentPath === "/ca/" ||
+          currentPath === "/ca/index.html" ||
+          currentPath.includes("/ca/")
+        ) {
+          currentLang = "CA";
+        }
+
+        document.getElementById("lang-text").textContent = currentLang;
+
+        // Highlight active language option
+        const langOptionLinks = document.querySelectorAll(".lang-option");
+        langOptionLinks.forEach((link) => {
+          link.classList.remove("active");
+          const linkHref = link.getAttribute("href");
+
+          if (
+            (currentLang === "EN" &&
+              (linkHref === "/" || linkHref === "/index.html")) ||
+            (currentLang === "ES" && linkHref === "/es/") ||
+            (currentLang === "CA" && linkHref === "/ca/")
+          ) {
+            link.classList.add("active");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

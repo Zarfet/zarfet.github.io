@@ -1145,8 +1145,6 @@
     </footer>
 
     <script>
-      let scrollPosition = 0;
-
       // Smooth scroll reveal
       const observerOptions = {
         threshold: 0.1,
@@ -1204,16 +1202,11 @@
       const mobileMenuLinks = document.querySelectorAll(".mobile-menu-links a");
 
       function openMobileMenu() {
-        scrollPosition = window.scrollY;
         menuToggle.classList.add("active");
         menuToggle.setAttribute("aria-expanded", "true");
         mobileBackdrop.classList.add("active");
         mobileBackdrop.setAttribute("aria-hidden", "false");
         mobileDrawer.classList.add("active");
-
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = "100%";
         document.body.style.overflow = "hidden";
       }
 
@@ -1223,12 +1216,7 @@
         mobileBackdrop.classList.remove("active");
         mobileBackdrop.setAttribute("aria-hidden", "true");
         mobileDrawer.classList.remove("active");
-
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
         document.body.style.overflow = "";
-        window.scrollTo(0, scrollPosition);
       }
 
       // Toggle menu on hamburger click
