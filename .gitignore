@@ -14,7 +14,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment variables (if you use them locally)
+# Environment variables
 .env
 .env.local
 .env.*.local
@@ -26,10 +26,10 @@ temp/
 *.tmp
 *.swp
 
-# Node dependencies (if you use build tools)
+# Node dependencies
 node_modules/
 
-# Build outputs (only if you're using a build step)
+# Build outputs
 dist/
 build/
 out/

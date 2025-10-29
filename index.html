@@ -4,7 +4,29 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Ilverzon Zarate - QA Analyst + Design Thinking</title>
+  <title>Ilverzon Zarate - QA Analyst</title>
+
+  <!-- Primary Meta Tags -->
+<meta name="title" content="Ilverzon Zarate - QA Analyst">
+<meta name="description" content="10+ years ensuring digital products work and make sense. QA that thinks like a designer, catching bugs where technical execution meets user flow.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tudominio.com/">
+<meta property="og:title" content="Ilverzon Zarate - QA Analyst">
+<meta property="og:description" content="10+ years ensuring digital products work and make sense. QA that thinks like a designer, catching bugs where technical execution meets user flow.">
+<meta property="og:image" content="https://tudominio.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Ilverzon Zarate Portfolio">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://tudominio.com/">
+<meta property="twitter:title" content="Ilverzon Zarate - QA Analyst">
+<meta property="twitter:description" content="10+ years ensuring digital products work and make sense. QA that thinks like a designer.">
+<meta property="twitter:image" content="https://tudominio.com/images/og-image.png">
   
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,7 +34,10 @@
   
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</noscript>
 
   <style>
     * {
@@ -24,7 +49,7 @@
     :root {
       --black: #0a0a0a;
       --white: #ffffff;
-      --gray: #383838;
+      --gray: #252525;
       --light-gray: #f5f5f5;
       --accent: #a50e1a;
     }
@@ -124,8 +149,23 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+    /* FIX iOS Safari */
+      -webkit-appearance: none;
+      appearance: none;
+      color: var(--black);
+      outline: none;
     }
 
+.lang-current:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+.lang-current * {
+  color: inherit;
+}
+    
     .lang-current:hover {
       background: var(--black);
       color: var(--white);
@@ -1000,6 +1040,7 @@
       <div class="contact-links">
         <a href="mailto:ilverzonzarate@gmail.com" class="contact-link">Email</a>
         <a href="https://www.linkedin.com/in/ilverzon" target="_blank" class="contact-link">LinkedIn</a>
+        <a href="/cv/cv-ilverzon-zarate-en.pdf" class="contact-link" download="Ilverzon-Zarate-CV-EN.pdf">Download CV</a>
       </div>
     </div>
   </section>
