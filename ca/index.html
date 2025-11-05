@@ -76,6 +76,7 @@
 
       html {
         scroll-behavior: smooth;
+        height: -webkit-fill-available;
       }
 
       body {
@@ -89,6 +90,7 @@
         line-height: 1.6;
         font-size: 16px;
         overflow-x: hidden;
+        min-height: -webkit-fill-available;
       }
 
       /* Navigation */
@@ -701,6 +703,7 @@
         text-align: center;
         padding: 3rem 2rem;
         font-size: 0.9rem;
+        position: relative;
       }
 
       /* Responsive */
@@ -734,7 +737,7 @@
         }
 
         .hero-image {
-          padding-top: 100px;
+          padding-top: 60px;
           min-height: 60vh;
           order: 0;
         }
