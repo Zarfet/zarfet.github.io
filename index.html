@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
     <title>Ilverzon Zarate - QA Analyst</title>
 
     <!-- Meta Description -->
@@ -73,7 +73,7 @@
 
       html {
         scroll-behavior: smooth;
-        height: -webkit-fill-available;
+        background: var(--black);
       }
 
       body {
@@ -82,13 +82,19 @@
           -apple-system,
           BlinkMacSystemFont,
           sans-serif;
-        background: var(--white);
+        background: var(--black);
         color: var(--black);
         line-height: 1.6;
         font-size: 16px;
         overflow-x: hidden;
-        min-height: -webkit-fill-available;
+        min-height: 100vh
       }
+
+      .content-wrapper {
+    background: var(--white); 
+    width: 100%; 
+}
+
 
       /* Navigation */
       nav {
@@ -366,8 +372,9 @@
 
       /* Sections */
       section {
-        min-height: 100vh;
-        padding: 8rem 4rem;
+        padding: 4rem 4rem;
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1rem + env(safe-area-inset-right));
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -381,7 +388,6 @@
 
       /* Hero Section */
       .hero {
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -398,7 +404,6 @@
         grid-template-columns: 1fr 1fr;
         gap: 0;
         align-items: stretch;
-        min-height: 100vh;
       }
 
       .hero-text {
@@ -500,33 +505,39 @@
       /* Services Section */
       .services {
         background: var(--light-gray);
+        padding-left: calc(4rem + env(safe-area-inset-left));
+        padding-right: calc(4rem + env(safe-area-inset-right)); 
       }
 
       .section-title {
         font-size: clamp(2.5rem, 6vw, 5rem);
         font-weight: 900;
         letter-spacing: -0.03em;
-        margin-bottom: 4rem;
       }
-
       .services-list {
         display: grid;
         gap: 1rem;
-        margin-top: 4rem;
+        margin-top: 1rem;
       }
 
       .service-item {
-        padding: 2rem 0;
+        position: relative;
+        padding-left: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         font-size: clamp(1.2rem, 2vw, 1.5rem);
         font-weight: 500;
         color: var(--gray);
         transition: all 0.3s ease;
+        line-height: 1.6;
       }
 
       .service-item::before {
         content: "•";
-        margin-right: 1rem;
+        position: absolute;
+        left: 0;
+        top: 0.9rem;
         color: var(--black);
         font-size: 1.5rem;
       }
@@ -542,6 +553,8 @@
         grid-template-columns: 1fr 1.5fr;
         gap: 6rem;
         align-items: start;
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1em + env(safe-area-inset-right));
       }
 
       .about-intro {
@@ -572,6 +585,8 @@
       .experience {
         background: var(--black);
         color: var(--white);
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1rem + env(safe-area-inset-right));
       }
 
       .experience .section-title {
@@ -580,7 +595,6 @@
 
       .experience-list {
         display: grid;
-        gap: 3rem;
       }
 
       .experience-item {
@@ -624,7 +638,9 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 3rem;
-        margin-top: 4rem;
+        margin-top: 2rem;
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1rem + env(safe-area-inset-right));
       }
 
       .skill-category h3 {
@@ -656,6 +672,8 @@
         background: var(--black);
         color: var(--white);
         text-align: center;
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1rem + env(safe-area-inset-right));
       }
 
       .contact h2 {
@@ -701,12 +719,15 @@
         padding: 3rem 2rem;
         font-size: 0.9rem;
         position: relative;
+        padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
       }
 
       /* Responsive */
       @media (max-width: 968px) {
         nav {
           padding: 1.5rem 2rem;
+          padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
         }
 
         .nav-links {
@@ -714,22 +735,20 @@
         }
 
         section {
-          padding: 6rem 2rem;
+          padding: 4rem 2rem;
         }
 
         .hero {
           height: auto;
-          min-height: 100vh;
         }
 
         .hero-content {
           grid-template-columns: 1fr;
           height: auto;
-          min-height: 100vh;
         }
 
         .hero-text {
-          padding: 8rem 2rem 4rem 2rem;
+          padding: 4rem 2rem 4rem 2rem;
           order: 1;
         }
 
@@ -763,7 +782,10 @@
         }
 
         .skills-grid {
-          grid-template-columns: 1fr;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 3rem;
+          margin-top: 2rem;
         }
       }
 
@@ -778,7 +800,7 @@
         }
 
         .hero-text {
-          padding: 8rem 1.5rem 3rem 1.5rem;
+          padding: 4rem 1.5rem 3rem 1.5rem;
         }
 
         .hero-image {
@@ -814,6 +836,7 @@
   </head>
 
   <body>
+    <main class="content-wrapper">
     <!-- Navigation -->
     <nav>
       <div class="nav-logo">
@@ -885,8 +908,8 @@
         <div class="hero-text">
           <h1>QA that thinks<br />like a designer</h1>
           <p class="hero-subtitle">
-            I catch bugs others miss because I understand both code and user
-            experience. 10+ years ensuring digital products work, and make
+            I catch bugs others miss because I&nbsp;understand both code and
+            user experience. 10+ years ensuring digital products work, and make
             sense.
           </p>
           <div class="hero-tags">
@@ -900,7 +923,7 @@
         </div>
         <div class="hero-image">
           <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
-          <img src="./images/Profile.jpg" alt="Ilverzon Zarate">
+          <img src="./images/Profile.jpg" alt="Ilverzon Zarate" />
         </div>
       </div>
     </section>
@@ -1106,7 +1129,7 @@
         </div>
       </div>
     </section>
-
+</main>
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
