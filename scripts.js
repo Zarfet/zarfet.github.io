@@ -27,16 +27,21 @@
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-links a");
 
-      function setActiveLink() {
-        let current = "";
+function setActiveLink() {
+  let current = "";
 
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute("id");
-          }
-        });
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    // Detectar si estamos cerca del final de la página
+    const pageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+    
+    if (pageBottom && section.getAttribute("id") === "contact") {
+      current = "contact";
+    } else if (window.scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
 
         navLinks.forEach((link) => {
           link.classList.remove("active");
