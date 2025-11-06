@@ -87,14 +87,13 @@
         line-height: 1.6;
         font-size: 16px;
         overflow-x: hidden;
-        min-height: 100vh
+        min-height: 100vh;
       }
 
       .content-wrapper {
-    background: var(--white); 
-    width: 100%; 
-}
-
+        background: var(--white);
+        width: 100%;
+      }
 
       /* Navigation */
       nav {
@@ -506,7 +505,7 @@
       .services {
         background: var(--light-gray);
         padding-left: calc(4rem + env(safe-area-inset-left));
-        padding-right: calc(4rem + env(safe-area-inset-right)); 
+        padding-right: calc(4rem + env(safe-area-inset-right));
       }
 
       .section-title {
@@ -727,7 +726,7 @@
         nav {
           padding: 1.5rem 2rem;
           padding-left: calc(1rem + env(safe-area-inset-left));
-    padding-right: calc(1rem + env(safe-area-inset-right));
+          padding-right: calc(1rem + env(safe-area-inset-right));
         }
 
         .nav-links {
@@ -837,299 +836,300 @@
 
   <body>
     <main class="content-wrapper">
-    <!-- Navigation -->
-    <nav>
-      <div class="nav-logo">
-        <!-- Text logo -->
-        Ilverzon Zarate
-        <!-- To use image logo instead, replace above with: -->
-        <!-- <img src="./images/logo.png" alt="Ilverzon Zarate"> -->
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button
-        class="menu-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu-drawer"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <!-- Language Selector Dropdown -->
-      <div class="lang-dropdown" id="lang-dropdown">
+      <!-- Navigation -->
+      <nav>
+        <div class="nav-logo">
+          <!-- Text logo -->
+          Ilverzon Zarate
+          <!-- To use image logo instead, replace above with: -->
+          <!-- <img src="./images/logo.png" alt="Ilverzon Zarate"> -->
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
         <button
-          class="lang-current"
-          id="lang-current"
-          aria-label="Select language"
+          class="menu-toggle"
+          aria-label="Toggle navigation menu"
           aria-expanded="false"
+          aria-controls="mobile-menu-drawer"
         >
-          <span id="lang-text">EN</span>
-          <span class="lang-arrow">▼</span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <div class="lang-options" id="lang-options" role="menu">
-          <a href="/" class="lang-option active" role="menuitem">English</a>
-          <a href="/es/" class="lang-option" role="menuitem">Español</a>
-          <a href="/ca/" class="lang-option" role="menuitem">Català</a>
+        <!-- Language Selector Dropdown -->
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button
+            class="lang-current"
+            id="lang-current"
+            aria-label="Select language"
+            aria-expanded="false"
+          >
+            <span id="lang-text">EN</span>
+            <span class="lang-arrow">▼</span>
+          </button>
+          <div class="lang-options" id="lang-options" role="menu">
+            <a href="/" class="lang-option active" role="menuitem">English</a>
+            <a href="/es/" class="lang-option" role="menuitem">Español</a>
+            <a href="/ca/" class="lang-option" role="menuitem">Català</a>
+          </div>
         </div>
+      </nav>
+
+      <!-- Mobile Menu Backdrop -->
+      <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+      <!-- Mobile Menu Drawer -->
+      <div
+        class="mobile-menu-drawer"
+        id="mobile-menu-drawer"
+        role="navigation"
+        aria-label="Mobile navigation"
+      >
+        <ul class="mobile-menu-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-    </nav>
 
-    <!-- Mobile Menu Backdrop -->
-    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-content fade-in">
+          <div class="hero-text">
+            <h1>QA that thinks<br />like a designer</h1>
+            <p class="hero-subtitle">
+              I catch bugs others miss because I&nbsp;understand both code and
+              user experience. 10+ years ensuring digital products work, and
+              make sense.
+            </p>
+            <div class="hero-tags">
+              <span class="tag">Visual</span>
+              <span class="tag">Technical</span>
+              <span class="tag">Strategic</span>
+            </div>
+            <div class="hero-cta">
+              <a href="#contact" class="btn-primary">Let's work together</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
+            <img src="./images/Profile.jpg" alt="Ilverzon Zarate" />
+          </div>
+        </div>
+      </section>
 
-    <!-- Mobile Menu Drawer -->
-    <div
-      class="mobile-menu-drawer"
-      id="mobile-menu-drawer"
-      role="navigation"
-      aria-label="Mobile navigation"
-    >
-      <ul class="mobile-menu-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-content fade-in">
-        <div class="hero-text">
-          <h1>QA that thinks<br />like a designer</h1>
-          <p class="hero-subtitle">
-            I catch bugs others miss because I&nbsp;understand both code and
-            user experience. 10+ years ensuring digital products work, and make
-            sense.
+      <!-- Services Section -->
+      <section class="services" id="services">
+        <div class="container">
+          <h2 class="section-title">What can I do for you?</h2>
+          <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px">
+            Let's get straight to the point.
           </p>
-          <div class="hero-tags">
-            <span class="tag">Visual</span>
-            <span class="tag">Technical</span>
-            <span class="tag">Strategic</span>
-          </div>
-          <div class="hero-cta">
-            <a href="#contact" class="btn-primary">Let's work together</a>
+          <div class="services-list">
+            <div class="service-item">
+              I test functionality AND user experience, catching issues where
+              technical execution meets user flow
+            </div>
+            <div class="service-item">
+              I design QA strategies from scratch, establishing processes that
+              help teams ship faster without breaking things
+            </div>
+            <div class="service-item">
+              I read code to detect issues early. Understanding architecture
+              helps me find problems before they reach production
+            </div>
+            <div class="service-item">
+              I work with modern tools (Selenium, Cypress, JIRA, Git) but my
+              value is the hybrid perspective: design + tech + QA
+            </div>
           </div>
         </div>
-        <div class="hero-image">
-          <!-- Replace with your photo: <img src="./images/profile.jpg" alt="Ilverzon Zarate"> -->
-          <img src="./images/Profile.jpg" alt="Ilverzon Zarate" />
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="container">
-        <h2 class="section-title">What can I do for you?</h2>
-        <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px">
-          Let's get straight to the point.
-        </p>
-        <div class="services-list">
-          <div class="service-item">
-            I test functionality AND user experience, catching issues where
-            technical execution meets user flow
-          </div>
-          <div class="service-item">
-            I design QA strategies from scratch, establishing processes that
-            help teams ship faster without breaking things
-          </div>
-          <div class="service-item">
-            I read code to detect issues early. Understanding architecture helps
-            me find problems before they reach production
-          </div>
-          <div class="service-item">
-            I work with modern tools (Selenium, Cypress, JIRA, Git) but my value
-            is the hybrid perspective: design + tech + QA
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-intro">
-            <h2>Where technical quality meets user experience</h2>
-          </div>
-          <div class="about-content">
-            <p>
-              My curiosity about how things worked behind the screens led me to
-              Quality Assurance. That transition became my edge.
-            </p>
-            <p>
-              Most QA analysts test functionality. I test functionality AND
-              experience. I read code, understand system architecture, and use
-              modern testing tools, but my differentiator is catching issues
-              where technical execution meets user flow.
-            </p>
-            <p>
-              I've spent 10+ years leading QA strategies for complex digital
-              products: e-commerce platforms handling millions of transactions,
-              fintech apps, media applications. I work with Selenium, Cypress,
-              and agile frameworks, but the real value is my hybrid perspective.
-            </p>
-            <p>
-              A feature can pass every functional test and still create a
-              terrible user experience. I'm the person who catches that
-              disconnect.
-            </p>
-            <p>
-              If you need QA that goes beyond "does it work?" to "does it make
-              sense?", let's talk.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-      <div class="container">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-list">
-          <div class="experience-item">
-            <div class="experience-date">2020 — Present</div>
-            <div class="experience-content">
-              <h3>Senior Quality Assurance Analyst</h3>
-              <div class="experience-company">Huge · Colombia</div>
-              <p class="experience-description">
-                Leading QA strategies for complex digital products. Specialized
-                in front-end and back-end testing, working with distributed
-                teams to establish quality processes that balance speed and
-                reliability. Focus on catching both technical bugs and UX issues
-                that impact user experience.
+      <!-- About Section -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-intro">
+              <h2>Where technical quality meets user experience</h2>
+            </div>
+            <div class="about-content">
+              <p>
+                My curiosity about how things worked behind the screens led me
+                to Quality Assurance. That transition became my edge.
+              </p>
+              <p>
+                Most QA analysts test functionality. I test functionality AND
+                experience. I read code, understand system architecture, and use
+                modern testing tools, but my differentiator is catching issues
+                where technical execution meets user flow.
+              </p>
+              <p>
+                I've spent 10+ years leading QA strategies for complex digital
+                products: e-commerce platforms handling millions of
+                transactions, fintech apps, media applications. I work with
+                Selenium, Cypress, and agile frameworks, but the real value is
+                my hybrid perspective.
+              </p>
+              <p>
+                A feature can pass every functional test and still create a
+                terrible user experience. I'm the person who catches that
+                disconnect.
+              </p>
+              <p>
+                If you need QA that goes beyond "does it work?" to "does it make
+                sense?", let's talk.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="experience-item">
-            <div class="experience-date">2018 — 2020</div>
-            <div class="experience-content">
-              <h3>Senior Quality Control Analyst</h3>
-              <div class="experience-company">
-                Globant · Buenos Aires, Argentina
+      <!-- Experience Section -->
+      <section class="experience" id="experience">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="experience-list">
+            <div class="experience-item">
+              <div class="experience-date">2020 — Present</div>
+              <div class="experience-content">
+                <h3>Senior Quality Assurance Analyst</h3>
+                <div class="experience-company">Huge · Colombia</div>
+                <p class="experience-description">
+                  Leading QA strategies for complex digital products.
+                  Specialized in front-end and back-end testing, working with
+                  distributed teams to establish quality processes that balance
+                  speed and reliability. Focus on catching both technical bugs
+                  and UX issues that impact user experience.
+                </p>
               </div>
-              <p class="experience-description">
-                Designed and supervised comprehensive test strategies across
-                multiple project types. Led test organization for unit,
-                integration, functional, system, load, and usability testing.
-                Coordinated QA efforts across time zones for international
-                clients.
-              </p>
             </div>
-          </div>
 
-          <div class="experience-item">
-            <div class="experience-date">2015 — 2018</div>
-            <div class="experience-content">
-              <h3>Quality Control Analyst</h3>
-              <div class="experience-company">Globant · Bogotá, Colombia</div>
-              <p class="experience-description">
-                Specialist in integration teams, designing test strategies and
-                their execution. Managed automated and functional test case
-                tools, establishing frameworks that improved team efficiency and
-                product quality.
-              </p>
+            <div class="experience-item">
+              <div class="experience-date">2018 — 2020</div>
+              <div class="experience-content">
+                <h3>Senior Quality Control Analyst</h3>
+                <div class="experience-company">
+                  Globant · Buenos Aires, Argentina
+                </div>
+                <p class="experience-description">
+                  Designed and supervised comprehensive test strategies across
+                  multiple project types. Led test organization for unit,
+                  integration, functional, system, load, and usability testing.
+                  Coordinated QA efforts across time zones for international
+                  clients.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="experience-item">
-            <div class="experience-date">2014 — 2015</div>
-            <div class="experience-content">
-              <h3>Sr. Technical QA Analyst</h3>
-              <div class="experience-company">VML · Colombia</div>
-              <p class="experience-description">
-                Focused on quality and attention to detail for digital campaigns
-                and platforms. Maintained effective communication between
-                technical and non-technical stakeholders, ensuring project
-                status clarity.
-              </p>
+            <div class="experience-item">
+              <div class="experience-date">2015 — 2018</div>
+              <div class="experience-content">
+                <h3>Quality Control Analyst</h3>
+                <div class="experience-company">Globant · Bogotá, Colombia</div>
+                <p class="experience-description">
+                  Specialist in integration teams, designing test strategies and
+                  their execution. Managed automated and functional test case
+                  tools, establishing frameworks that improved team efficiency
+                  and product quality.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="experience-item">
-            <div class="experience-date">2012 — 2014</div>
-            <div class="experience-content">
-              <h3>QA Analyst</h3>
-              <div class="experience-company">VML · Colombia</div>
-              <p class="experience-description">
-                Started career in QA after transitioning from graphic design.
-                Supervised product testing, designed test plans, and coordinated
-                with test engineers. This period established the foundation for
-                my hybrid approach to quality assurance.
-              </p>
+            <div class="experience-item">
+              <div class="experience-date">2014 — 2015</div>
+              <div class="experience-content">
+                <h3>Sr. Technical QA Analyst</h3>
+                <div class="experience-company">VML · Colombia</div>
+                <p class="experience-description">
+                  Focused on quality and attention to detail for digital
+                  campaigns and platforms. Maintained effective communication
+                  between technical and non-technical stakeholders, ensuring
+                  project status clarity.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-date">2012 — 2014</div>
+              <div class="experience-content">
+                <h3>QA Analyst</h3>
+                <div class="experience-company">VML · Colombia</div>
+                <p class="experience-description">
+                  Started career in QA after transitioning from graphic design.
+                  Supervised product testing, designed test plans, and
+                  coordinated with test engineers. This period established the
+                  foundation for my hybrid approach to quality assurance.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Testing & QA</h3>
-            <div class="skill-list">
-              <span>Manual Testing</span>
-              <span>Test Strategy Design</span>
-              <span>ISTQB Certified</span>
-              <span>Front-end Testing</span>
-              <span>Back-end Testing</span>
-              <span>Responsive Testing</span>
-              <span>UX Testing</span>
-              <span>A11Y (Accessibility)</span>
+      <!-- Skills Section -->
+      <section class="skills" id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Testing & QA</h3>
+              <div class="skill-list">
+                <span>Manual Testing</span>
+                <span>Test Strategy Design</span>
+                <span>ISTQB Certified</span>
+                <span>Front-end Testing</span>
+                <span>Back-end Testing</span>
+                <span>Responsive Testing</span>
+                <span>UX Testing</span>
+                <span>A11Y (Accessibility)</span>
+              </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <h3>Methodologies</h3>
-            <div class="skill-list">
-              <span>Agile / Scrum</span>
-              <span>CI/CD</span>
-              <span>Test-Driven Development</span>
-              <span>Risk Management</span>
-              <span>Process Establishment</span>
+            <div class="skill-category">
+              <h3>Methodologies</h3>
+              <div class="skill-list">
+                <span>Agile / Scrum</span>
+                <span>CI/CD</span>
+                <span>Test-Driven Development</span>
+                <span>Risk Management</span>
+                <span>Process Establishment</span>
+              </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <h3>Tools & Tech</h3>
-            <div class="skill-list">
-              <span>Selenium</span>
-              <span>Cypress</span>
-              <span>Postman</span>
-              <span>JIRA</span>
-              <span>Git</span>
-              <span>SQL</span>
-              <span>Code Reading (JS, HTML, CSS)</span>
+            <div class="skill-category">
+              <h3>Tools & Tech</h3>
+              <div class="skill-list">
+                <span>Selenium</span>
+                <span>Cypress</span>
+                <span>Postman</span>
+                <span>JIRA</span>
+                <span>Git</span>
+                <span>SQL</span>
+                <span>Code Reading (JS, HTML, CSS)</span>
+              </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <h3>Design & UX</h3>
-            <div class="skill-list">
-              <span>Figma</span>
-              <span>Adobe Creative Suite</span>
-              <span>Responsive Design</span>
-              <span>Graphic Communication</span>
-              <span>User Flow Analysis</span>
+            <div class="skill-category">
+              <h3>Design & UX</h3>
+              <div class="skill-list">
+                <span>Figma</span>
+                <span>Adobe Creative Suite</span>
+                <span>Responsive Design</span>
+                <span>Graphic Communication</span>
+                <span>User Flow Analysis</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-</main>
+      </section>
+    </main>
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
