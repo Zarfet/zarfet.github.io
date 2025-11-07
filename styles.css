@@ -585,8 +585,8 @@ section[id] {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 3rem;
   margin-top: 2rem;
-  padding-left: calc(1rem + env(safe-area-inset-left));
-  padding-right: calc(1rem + env(safe-area-inset-right));
+  padding-left: calc(3rem + env(safe-area-inset-left));
+  padding-right: calc(3rem + env(safe-area-inset-right));
 }
 
 .skill-category h3 {
@@ -618,8 +618,8 @@ section[id] {
   background: var(--black);
   color: var(--white);
   text-align: center;
-  padding-left: calc(1rem + env(safe-area-inset-left));
-  padding-right: calc(1rem + env(safe-area-inset-right));
+  padding-left: calc(3rem + env(safe-area-inset-left));
+  padding-right: calc(3rem + env(safe-area-inset-right));
 }
 
 .contact h2 {
@@ -672,8 +672,8 @@ footer {
 @media (max-width: 968px) {
   nav {
     padding: 1.5rem 2rem;
-    padding-left: calc(1rem + env(safe-area-inset-left));
-    padding-right: calc(1rem + env(safe-area-inset-right));
+    padding-left: calc(3rem + env(safe-area-inset-left));
+    padding-right: calc(3rem + env(safe-area-inset-right));
   }
 
   .nav-links {
