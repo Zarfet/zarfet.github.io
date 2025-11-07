@@ -312,7 +312,7 @@ nav {
 
 /* Sections */
 section {
-  padding: 4rem 4rem;
+  padding: 3rem 3rem;
   padding-left: calc(3rem + env(safe-area-inset-left));
   padding-right: calc(3rem + env(safe-area-inset-right));
   display: flex;
@@ -449,8 +449,8 @@ section[id] {
 /* Services Section */
 .services {
   background: var(--light-gray);
-  padding-left: calc(4rem + env(safe-area-inset-left));
-  padding-right: calc(4rem + env(safe-area-inset-right));
+  padding-left: calc(3rem + env(safe-area-inset-left));
+  padding-right: calc(3rem + env(safe-area-inset-right));
 }
 
 .section-title {
@@ -671,7 +671,7 @@ footer {
 /* Responsive */
 @media (max-width: 968px) {
   nav {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2%;
     padding-left: calc(3rem + env(safe-area-inset-left));
     padding-right: calc(3rem + env(safe-area-inset-right));
   }
@@ -681,7 +681,7 @@ footer {
   }
 
   section {
-    padding: 4rem 2rem;
+    padding: 4rem 3rem;
   }
 
   .hero {
