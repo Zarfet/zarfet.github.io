@@ -1,8 +1,8 @@
 # Ilverzon Zarate - Portfolio
 
-Professional portfolio showcasing QA expertise with design thinking approach.
+Personal portfolio site for Ilverzon Zarate — QA Engineer with a background in UX design.
 
-🌐 **Live Site:** [Coming soon]
+🌐 **Live Site:** [zarfet.com](https://zarfet.com)
 
 ---
 
@@ -13,8 +13,8 @@ Professional portfolio showcasing QA expertise with design thinking approach.
 - **Mobile-Responsive** - iOS-style drawer menu, adapts to all screen sizes
 - **Accessibility-Ready** - ARIA attributes, keyboard navigation (ESC, Tab, Enter)
 - **Performance Optimized** - Minimal JavaScript, fast loading, smooth animations, font optimization
-- **Strategic Positioning** - "QA that thinks like a designer" differentiation
-- **Downloadable CV** - Direct PDF download link in contact section
+- **Strategic Positioning** - "QA Engineer with a designer's eye" differentiation
+- **Downloadable CV** - Direct PDF download in EN and ES versions
 
 ---
 
@@ -22,7 +22,8 @@ Professional portfolio showcasing QA expertise with design thinking approach.
 
 ```
 ├── cv/
-│   └── cv-ilverzon-zarate-en.pdf    # Downloadable CV
+│   ├── cv-ilverzon-zarate-en.pdf    # Downloadable CV (English)
+│   └── cv-ilverzon-zarate-es.pdf    # Downloadable CV (Spanish)
 ├── es/
 │   └── index.html                   # Spanish version
 ├── ca/
@@ -44,7 +45,7 @@ Professional portfolio showcasing QA expertise with design thinking approach.
 
 - **English:** `https://zarfet.com/`
 - **Español:** `https://zarfet.com/es/`
-- **Català:** `https://zarfet.com/ca/`
+- **Català:** `https://zarfet.com/ca/` *(updated but hidden from public nav — uncomment the CA link in EN and ES to activate)*
 
 ---
 
@@ -99,7 +100,7 @@ All pages include:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/portfolio.git
+git clone https://github.com/Zarfet/zarfet.github.io.git
 
 # Open in browser
 open index.html
@@ -133,7 +134,7 @@ Site available at: `https://zarfet.com`
 
 ## 📄 License
 
-© 2025 Ilverzon Zarate. All rights reserved.
+© 2026 Ilverzon Zarate. All rights reserved.
 
 ---
 
