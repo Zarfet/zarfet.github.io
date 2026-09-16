@@ -849,6 +849,14 @@ footer {
   padding-bottom: 7rem;
 }
 
+/* Shared horizontal frame for the two long-form QA modules. */
+.qa-section-content {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 .qa-section-heading {
   margin-bottom: 4rem;
 }
