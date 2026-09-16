@@ -50,6 +50,15 @@
         >
           <span></span><span></span><span></span>
         </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-current" id="lang-current" aria-label="Select language" aria-expanded="false">
+            <span id="lang-text">EN</span><span class="lang-arrow">▼</span>
+          </button>
+          <div class="lang-options" id="lang-options" role="menu">
+            <a href="/qa/" class="lang-option active" role="menuitem">English</a>
+            <a href="/es/qa/" class="lang-option" role="menuitem">Español</a>
+          </div>
+        </div>
       </nav>
 
       <div class="mobile-menu-backdrop" aria-hidden="true"></div>
@@ -73,6 +82,7 @@
           </p>
           <div class="hero-tags">
             <span class="tag">Quality strategy</span>
+            <span class="tag">Manual &amp; exploratory QA</span>
             <span class="tag">Cypress</span>
             <span class="tag">Playwright</span>
             <span class="tag">Visual testing</span>
@@ -91,12 +101,40 @@
       <section class="qa-work" id="work">
         <div class="container">
           <div class="qa-section-heading">
-            <p class="qa-eyebrow">SELECTED WORK</p>
-            <h2>What I have built and how I think about it.</h2>
+            <p class="qa-eyebrow">SELECTED QA WORK</p>
+            <h2>Quality is more than automation.</h2>
           </div>
 
-          <article class="qa-case-study qa-case-study-featured">
+          <article class="qa-case-study qa-case-study-manual">
             <div class="qa-case-meta">01 · PROFESSIONAL WORK · ANONYMISED</div>
+            <div class="qa-case-content">
+              <div>
+                <h3>Quality strategy &amp; release readiness</h3>
+                <p class="qa-case-summary">
+                  The work behind a confident release often starts before a single automated test is written: understanding the product, clarifying risk, and giving a team a shared way to make quality decisions.
+                </p>
+              </div>
+              <div class="qa-case-details">
+                <div>
+                  <h4>Starting point</h4>
+                  <p>Digital teams delivering concurrent features and releases needed practical QA coverage without slowing product delivery or treating testing as a final-stage handoff.</p>
+                </div>
+                <div>
+                  <h4>My role</h4>
+                  <p>Defined risk-based test strategies, supported acceptance criteria, and coordinated functional, regression, exploratory, cross-browser, and cross-device validation across product and engineering teams.</p>
+                </div>
+                <div>
+                  <h4>How I work</h4>
+                  <p>Focus manual effort where human judgement matters most: unclear user flows, high-risk changes, edge cases, visual and usability issues, and the gaps that scripted checks cannot predict.</p>
+                </div>
+              </div>
+            </div>
+            <div class="qa-manual-tags"><span>Test strategy</span><span>Exploratory testing</span><span>Release validation</span><span>Cross-browser QA</span><span>Usability</span></div>
+            <p class="qa-confidentiality-note">Examples are intentionally anonymised to protect client and project confidentiality.</p>
+          </article>
+
+          <article class="qa-case-study qa-case-study-featured">
+            <div class="qa-case-meta">02 · PROFESSIONAL WORK · ANONYMISED</div>
             <div class="qa-case-content">
               <div>
                 <h3>Cypress migration testing &amp; visual validation</h3>
@@ -125,7 +163,7 @@
 
           <div class="qa-case-grid">
             <article class="qa-case-study">
-              <div class="qa-case-meta">02 · PUBLIC PROJECT</div>
+              <div class="qa-case-meta">03 · PUBLIC PROJECT</div>
               <h3>Playwright E2E test suite</h3>
               <p>A practical end-to-end suite for login, cart, and checkout flows, built around maintainable tests rather than one-off scripts.</p>
               <ul class="qa-list">
@@ -139,7 +177,7 @@
             </article>
 
             <article class="qa-case-study">
-              <div class="qa-case-meta">03 · PUBLIC PROJECT</div>
+              <div class="qa-case-meta">04 · PUBLIC PROJECT</div>
               <h3>Automation testing lab</h3>
               <p>A space for building, testing, and documenting automation exercises and reusable QA practices as my automation work continues to grow.</p>
               <ul class="qa-list">

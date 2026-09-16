@@ -873,9 +873,19 @@ footer {
   border: 0;
 }
 
+.qa-case-study-manual {
+  margin-bottom: 1.5rem;
+  background: var(--white);
+}
+
 .qa-case-study-featured .qa-case-meta,
 .qa-case-study-featured .qa-confidentiality-note {
   color: #ee7982;
+}
+
+.qa-case-study-manual .qa-case-details h4,
+.qa-case-study-manual .qa-confidentiality-note {
+  color: var(--accent);
 }
 
 .qa-case-content {
@@ -925,6 +935,21 @@ footer {
 
 .qa-stack span {
   border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.qa-manual-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  border-top: 1px solid rgba(10, 10, 10, 0.2);
+  padding-top: 1.5rem;
+}
+
+.qa-manual-tags span {
+  border: 1px solid rgba(10, 10, 10, 0.5);
   border-radius: 999px;
   padding: 0.35rem 0.65rem;
   font-size: 0.8rem;
