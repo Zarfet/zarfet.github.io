@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      name="viewport"
+    />
+    <title>QA & Testing Portfolio | Ilverzon Zarate</title>
+    <meta
+      name="description"
+      content="QA and test automation work by Ilverzon Zarate: quality strategy, Cypress, visual regression testing, and Playwright E2E projects."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zarfet.com/qa/" />
+    <meta property="og:title" content="QA & Testing Portfolio | Ilverzon Zarate" />
+    <meta
+      property="og:description"
+      content="Quality strategy, Cypress, visual regression testing, and Playwright E2E projects."
+    />
+    <meta property="og:image" content="https://zarfet.com/images/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <main class="content-wrapper">
+      <nav>
+        <a class="nav-logo" href="/" aria-label="Ilverzon Zarate home">Ilverzon Zarate</a>
+        <ul class="nav-links qa-nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a class="active" href="/qa/">QA Portfolio</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button
+          class="menu-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu-drawer"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+      <div class="mobile-menu-drawer" id="mobile-menu-drawer" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-links">
+          <li><a href="/">Home</a></li>
+          <li><a class="active" href="/qa/">QA Portfolio</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <section class="qa-hero" id="home">
+        <div class="container qa-hero-content">
+          <p class="qa-eyebrow">QA &amp; TESTING PORTFOLIO</p>
+          <h1>Quality work with context.</h1>
+          <p class="qa-lead">
+            I combine 13 years of product-focused QA with practical automation work.
+            The goal is simple: help teams release with confidence, without losing sight of the person using the product.
+          </p>
+          <div class="hero-tags">
+            <span class="tag">Quality strategy</span>
+            <span class="tag">Cypress</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">Visual testing</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-principles" aria-label="Portfolio principles">
+        <div class="container qa-principles-grid">
+          <p><strong>Product first.</strong> Testing is not a final gate; it is how teams make better decisions throughout delivery.</p>
+          <p><strong>Automation with purpose.</strong> I automate repeatable, high-value checks so people can focus on exploration, risk, and product judgement.</p>
+          <p><strong>Confidential by design.</strong> Client work is presented in anonymised form, without client data, internal systems, or sensitive evidence.</p>
+        </div>
+      </section>
+
+      <section class="qa-work" id="work">
+        <div class="container">
+          <div class="qa-section-heading">
+            <p class="qa-eyebrow">SELECTED WORK</p>
+            <h2>What I have built and how I think about it.</h2>
+          </div>
+
+          <article class="qa-case-study qa-case-study-featured">
+            <div class="qa-case-meta">01 · PROFESSIONAL WORK · ANONYMISED</div>
+            <div class="qa-case-content">
+              <div>
+                <h3>Cypress migration testing &amp; visual validation</h3>
+                <p class="qa-case-summary">
+                  A reusable quality workflow for a web-platform migration: validating routes, redirects, localised content, and visual consistency across key page areas.
+                </p>
+              </div>
+              <div class="qa-case-details">
+                <div>
+                  <h4>The challenge</h4>
+                  <p>Migration work creates many ways for a familiar experience to break: an inaccessible route, a failed redirect, missing localised content, or a visual regression that only appears on a specific viewport.</p>
+                </div>
+                <div>
+                  <h4>The approach</h4>
+                  <p>Built Cypress checks for page loads, redirects, and localised content. Added screenshot comparison for headers, navigation, footers, page layouts, and dynamic content at desktop and mobile viewports.</p>
+                </div>
+                <div>
+                  <h4>What made it reusable</h4>
+                  <p>Clear test grouping, baseline and comparison workflows, and visual HTML reports gave the team a repeatable way to investigate regressions before release.</p>
+                </div>
+              </div>
+            </div>
+            <div class="qa-stack"><span>Cypress</span><span>JavaScript</span><span>Visual regression</span><span>Responsive QA</span></div>
+            <p class="qa-confidentiality-note">Details have been deliberately anonymised to respect client confidentiality and data-protection obligations.</p>
+          </article>
+
+          <div class="qa-case-grid">
+            <article class="qa-case-study">
+              <div class="qa-case-meta">02 · PUBLIC PROJECT</div>
+              <h3>Playwright E2E test suite</h3>
+              <p>A practical end-to-end suite for login, cart, and checkout flows, built around maintainable tests rather than one-off scripts.</p>
+              <ul class="qa-list">
+                <li>Reusable fixtures for test data and context</li>
+                <li>Semantic, accessibility-aware locators</li>
+                <li>Chromium, Firefox, and WebKit coverage</li>
+                <li>HTML reports and GitHub Actions CI</li>
+                <li>Traceability from test plan to implementation</li>
+              </ul>
+              <a class="qa-link" href="https://github.com/Zarfet/playwright-ai-curso" target="_blank" rel="noopener noreferrer">View project on GitHub <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="qa-case-study">
+              <div class="qa-case-meta">03 · PUBLIC PROJECT</div>
+              <h3>Automation testing lab</h3>
+              <p>A space for building, testing, and documenting automation exercises and reusable QA practices as my automation work continues to grow.</p>
+              <ul class="qa-list">
+                <li>Hands-on test automation practice</li>
+                <li>Test design and implementation experiments</li>
+                <li>Reusable patterns, documentation, and learning notes</li>
+              </ul>
+              <a class="qa-link" href="https://github.com/Zarfet/laboratorio-testing-automation" target="_blank" rel="noopener noreferrer">View project on GitHub <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-approach" id="approach">
+        <div class="container">
+          <div class="qa-section-heading">
+            <p class="qa-eyebrow">TESTING APPROACH</p>
+            <h2>Good automation starts with good QA judgement.</h2>
+          </div>
+          <ol class="qa-steps">
+            <li><span>01</span><div><h3>Understand the product and the risk</h3><p>Start with user flows, business priorities, integration points, and the areas most likely to damage a release.</p></div></li>
+            <li><span>02</span><div><h3>Choose the right level of testing</h3><p>Not every check belongs in end-to-end automation. The right balance protects speed, confidence, and maintainability.</p></div></li>
+            <li><span>03</span><div><h3>Make the work usable by the team</h3><p>Clear naming, shared fixtures, test plans, reports, and CI workflows turn testing into a team capability rather than one person’s knowledge.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="qa-contact" id="contact">
+        <div class="container">
+          <p class="qa-eyebrow">LET'S TALK</p>
+          <h2>Building quality into your next release?</h2>
+          <a class="btn-primary" href="mailto:ilverzonzarate@gmail.com">Get in touch</a>
+        </div>
+      </section>
+    </main>
+    <script src="../scripts.js"></script>
+  </body>
+</html>
