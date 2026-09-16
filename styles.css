@@ -451,6 +451,14 @@ section[id] {
   transform: translateY(-2px);
 }
 
+.btn-secondary {
+  color: var(--black);
+  font-weight: 600;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
 /* Services Section */
 .services {
   background: var(--light-gray);
