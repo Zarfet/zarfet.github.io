@@ -506,6 +506,109 @@ section[id] {
   font-weight: 600;
 }
 
+/* Selected QA work — uses the same container and section rhythm as the rest of the one-page site. */
+.portfolio {
+  background: var(--white);
+}
+
+.portfolio-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.portfolio-heading p {
+  color: var(--gray);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.portfolio-item {
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 2rem;
+}
+
+.portfolio-item-dark {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.portfolio-label {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.portfolio-item-dark .portfolio-label {
+  color: #ee7982;
+}
+
+.portfolio-item h3 {
+  font-size: 1.7rem;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 1.25rem 0;
+}
+
+.portfolio-item > p:not(.portfolio-label) {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.portfolio-item-dark > p:not(.portfolio-label) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.portfolio-tags span {
+  border: 1px solid rgba(10, 10, 10, 0.45);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.portfolio-item-dark .portfolio-tags span {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.portfolio-link {
+  color: var(--black);
+  font-weight: 700;
+  margin-top: auto;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.portfolio-note {
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
 /* About Section */
 .about-grid {
   display: grid;
@@ -1093,5 +1196,20 @@ footer {
   .qa-steps li {
     grid-template-columns: 2.5rem 1fr;
     gap: 1rem;
+  }
+
+  .portfolio-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-heading,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-heading {
+    gap: 1.5rem;
   }
 }
