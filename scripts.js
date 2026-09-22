@@ -197,3 +197,65 @@ function setActiveLink() {
           }
         });
       }
+
+      // QA evidence dialogs
+      const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
+      const dialogs = document.querySelectorAll(".qa-dialog");
+      let lastFocusedElement = null;
+
+      function closeDialog(dialog) {
+        dialog.hidden = true;
+        document.body.classList.remove("qa-dialog-open");
+        if (lastFocusedElement) lastFocusedElement.focus();
+      }
+
+      dialogTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const dialog = document.getElementById(trigger.dataset.dialogOpen);
+          if (!dialog) return;
+          lastFocusedElement = trigger;
+          dialog.hidden = false;
+          document.body.classList.add("qa-dialog-open");
+          dialog.querySelector(".qa-dialog-close").focus();
+        });
+      });
+
+      dialogs.forEach((dialog) => {
+        dialog.querySelectorAll("[data-dialog-close]").forEach((control) => {
+          control.addEventListener("click", () => closeDialog(dialog));
+        });
+      });
+
+      document.querySelectorAll(".qa-gallery-thumb").forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          const gallery = thumb.closest(".qa-dialog-media-gallery");
+          const mainImage = gallery.querySelector(".qa-gallery-main");
+          mainImage.src = thumb.dataset.galleryImage;
+          mainImage.alt = thumb.dataset.galleryAlt;
+          gallery.querySelectorAll(".qa-gallery-thumb").forEach((item) => item.classList.remove("is-active"));
+          thumb.classList.add("is-active");
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        const openDialog = document.querySelector(".qa-dialog:not([hidden])");
+        if (!openDialog) return;
+
+        if (event.key === "Escape") {
+          closeDialog(openDialog);
+          return;
+        }
+
+        if (event.key === "Tab") {
+          const focusable = openDialog.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });

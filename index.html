@@ -75,9 +75,8 @@
         </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
           <li><a href="#portfolio">QA Work</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button
@@ -121,9 +120,8 @@
       >
         <ul class="mobile-menu-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
           <li><a href="#portfolio">QA Work</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -134,7 +132,7 @@
           <div class="hero-text">
             <h1>QA Engineer with a designer's eye</h1>
             <p class="hero-subtitle">
-              13 years helping teams ship digital products with confidence. I bring risk-based QA, product judgement, and purposeful automation.
+              13 years making sure digital products work, and make sense. I build test strategies and automation frameworks for teams that need quality without the bottlenecks.
             </p>
             <div class="hero-tags">
               <span class="tag">Visual</span>
@@ -156,72 +154,122 @@
       <!-- Positioning Section -->
       <section class="services" id="services">
         <div class="container">
-          <h2 class="section-title">Quality is a product practice.</h2>
-          <p style="font-size: 1.2rem; color: var(--gray); max-width: 700px">
-            A clear point of view, not a long list of tools.
-          </p>
-          <div class="services-list">
-            <div class="service-item">
-              Start with risk: what can fail, who it affects, and where the team needs confidence
+          <div class="services-layout">
+            <div class="services-heading">
+              <p class="section-eyebrow">How I work</p>
+              <h2 class="services-title">Quality is part of product work.</h2>
+              <p class="section-intro">
+                Start with what matters, not a list of tools.
+              </p>
             </div>
-            <div class="service-item">
-              Build quality into delivery, from discovery and acceptance criteria through release
-            </div>
-            <div class="service-item">
-              Automate the repeatable; protect time for product judgement, usability, and real-world edge cases
+            <div class="services-list">
+              <div class="service-item">
+                <span>01</span>
+                <p>I start with risk: what can fail, who it affects, and where the team needs confidence.</p>
+              </div>
+              <div class="service-item">
+                <span>02</span>
+                <p>I build quality into delivery, from discovery and acceptance criteria through release.</p>
+              </div>
+              <div class="service-item">
+                <span>03</span>
+                <p>I automate the repeatable and protect time for product judgement, usability, and real-world edge cases.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About Section -->
-      <section class="about" id="about">
+      <!-- Selected QA Work Section -->
+      <section class="portfolio" id="portfolio">
         <div class="container">
-          <div class="about-grid">
-            <div class="about-intro">
-              <h2>Making quality practical</h2>
-            </div>
-            <div class="about-content">
-              <p>
-                My UX design background shaped how I approach QA: not only asking whether a product works, but whether it makes sense for the person using it.
-              </p>
-              <p>
-                Across fintech, e-commerce, media, aviation, and telecommunications, I have helped teams establish QA practices, manage release risk, and make better product decisions.
-              </p>
-            </div>
+          <div class="portfolio-heading">
+            <h2 class="section-title">Selected QA work</h2>
+            <p>
+            My UX background helps me see not only whether something works, but whether it makes sense for the person using it. Manual QA and quality strategy are my foundation; automation speeds up repeatable checks. AI supports planning and implementation, always with human review of scope, expected behaviour, and results.
+            </p>
           </div>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-item">
+              <p class="portfolio-label">PUBLIC QA CASE STUDY</p>
+              <h3>Risk-based coverage strategy</h3>
+              <p>
+                Prioritised purchase, registration, and authentication coverage based on change risk and user impact.
+              </p>
+              <div class="portfolio-tags"><span>Risk-based QA</span><span>Test strategy</span><span>Critical journeys</span></div>
+              <button class="portfolio-link portfolio-button" type="button" aria-haspopup="dialog" aria-controls="strategy-dialog" data-dialog-open="strategy-dialog">View approach</button>
+            </article>
+
+            <article class="portfolio-item portfolio-item-dark">
+              <p class="portfolio-label">PROFESSIONAL WORK · ANONYMISED</p>
+              <h3>Cypress migration &amp; visual validation</h3>
+              <p>
+                Cypress migration checks and visual regression workflows for critical UI areas, across desktop and mobile viewports.
+              </p>
+              <div class="portfolio-tags"><span>Cypress</span><span>Visual regression</span><span>Responsive QA</span></div>
+              <button class="portfolio-link portfolio-button" type="button" aria-haspopup="dialog" aria-controls="visual-dialog" data-dialog-open="visual-dialog">View evidence</button>
+            </article>
+
+            <article class="portfolio-item">
+              <p class="portfolio-label">PUBLIC PROJECT</p>
+              <h3>Critical-flow automation &amp; CI</h3>
+              <p>
+                Cypress checks for critical e-commerce journeys, with reports and cross-browser CI that make failures visible early.
+              </p>
+              <div class="portfolio-tags"><span>Cypress</span><span>HTML reports</span><span>GitHub Actions</span></div>
+              <button class="portfolio-link portfolio-button" type="button" aria-haspopup="dialog" aria-controls="automation-dialog" data-dialog-open="automation-dialog">View evidence</button>
+            </article>
+
+            <article class="portfolio-item portfolio-item-dark">
+              <p class="portfolio-label">PUBLIC PROJECT · AI-ASSISTED</p>
+              <h3>Playwright E2E framework</h3>
+              <p>
+                AI-assisted test development, with human review of scope, expected behaviour, assertions, and results.
+              </p>
+              <div class="portfolio-tags"><span>Playwright</span><span>AI-assisted</span><span>Human-reviewed</span></div>
+              <button class="portfolio-link portfolio-button" type="button" aria-haspopup="dialog" aria-controls="playwright-dialog" data-dialog-open="playwright-dialog">View workflow</button>
+            </article>
+          </div>
+
+          <p class="portfolio-note">Professional work is anonymised to protect client confidentiality.</p>
         </div>
       </section>
 
       <!-- Experience Section -->
       <section class="experience" id="experience">
         <div class="container">
-          <h2 class="section-title">Experience</h2>
+          <div class="experience-heading">
+            <div>
+              <p class="section-eyebrow">Experience</p>
+              <h2 class="experience-title">13 years in QA, focused on product quality.</h2>
+            </div>
+          </div>
           <div class="experience-list">
             <div class="experience-item">
-              <div class="experience-date">2020 to 2025</div>
+              <div class="experience-date">2020–2025</div>
               <div class="experience-content">
                 <h3>Senior QA Analyst</h3>
                 <div class="experience-company">Huge · Bogotá, Colombia</div>
                 <p class="experience-description">
-                  Established QA processes and Cypress automation for enterprise releases. Automation enabled repeatable validation of critical flows before deployment, reducing manual effort and giving teams earlier feedback. Coordinated distributed teams and mentored junior QA engineers.
+                  Built QA processes and Cypress automation for enterprise releases. Automation made critical flows repeatable before deployment, reduced manual effort, and gave teams earlier feedback. Coordinated distributed teams and mentored junior QA engineers.
                 </p>
               </div>
             </div>
 
             <div class="experience-item">
-              <div class="experience-date">2018 to 2020</div>
+              <div class="experience-date">2018–2020</div>
               <div class="experience-content">
                 <h3>Senior QC Analyst</h3>
                 <div class="experience-company">Globant · Buenos Aires, Argentina</div>
                 <p class="experience-description">
-                  Owned QA across concurrent Agile projects, introducing Cypress automation, quality metrics, and release-readiness practices.
+                  Led QA across concurrent Agile projects, introducing Cypress automation, quality metrics, and release-readiness practices.
                 </p>
               </div>
             </div>
 
             <div class="experience-item">
-              <div class="experience-date">2015 to 2018</div>
+              <div class="experience-date">2015–2018</div>
               <div class="experience-content">
                 <h3>QA Analyst</h3>
                 <div class="experience-company">Globant · Bogotá, Colombia</div>
@@ -232,7 +280,7 @@
             </div>
 
             <div class="experience-item">
-              <div class="experience-date">2012 to 2015</div>
+              <div class="experience-date">2012–2015</div>
               <div class="experience-content">
                 <h3>Sr. Technical QA Analyst</h3>
                 <div class="experience-company">VML (VMLY&amp;R) · Bogotá, Colombia</div>
@@ -246,55 +294,12 @@
         </div>
       </section>
 
-      <!-- Selected QA Work Section -->
-      <section class="portfolio" id="portfolio">
-        <div class="container">
-          <div class="portfolio-heading">
-            <h2 class="section-title">Selected QA work</h2>
-            <p>
-              Manual and product-focused QA are my foundation. Automation makes repeatable checks faster; human judgement keeps quality connected to risk and users.
-            </p>
-          </div>
-
-          <div class="portfolio-grid">
-            <article class="portfolio-item">
-              <p class="portfolio-label">PROFESSIONAL WORK · ANONYMISED</p>
-              <h3>Quality strategy &amp; release readiness</h3>
-              <p>
-                Risk-based test strategy, acceptance criteria, and release validation across functional, exploratory, cross-browser, and cross-device testing.
-              </p>
-              <div class="portfolio-tags"><span>Manual QA</span><span>Exploratory testing</span><span>Release validation</span><span>Usability</span></div>
-            </article>
-
-            <article class="portfolio-item portfolio-item-dark">
-              <p class="portfolio-label">PROFESSIONAL WORK · ANONYMISED</p>
-              <h3>Cypress migration &amp; visual validation</h3>
-              <p>
-                Cypress migration checks and visual regression workflows for critical UI areas, across desktop and mobile viewports.
-              </p>
-              <div class="portfolio-tags"><span>Cypress</span><span>Visual regression</span><span>Responsive QA</span></div>
-            </article>
-
-            <article class="portfolio-item">
-              <p class="portfolio-label">PUBLIC PROJECT</p>
-              <h3>Playwright E2E test suite</h3>
-              <p>
-                Public E2E suite for login, cart, and checkout flows, with reusable fixtures, semantic locators, multi-browser execution, reporting, and CI.
-              </p>
-              <a class="portfolio-link" href="https://github.com/Zarfet/playwright-ai-curso" target="_blank" rel="noopener noreferrer">View project on GitHub <span aria-hidden="true">↗</span></a>
-            </article>
-          </div>
-
-          <p class="portfolio-note">Professional examples are intentionally anonymised to protect client confidentiality and data-protection obligations.</p>
-        </div>
-      </section>
-
       <!-- Contact Section -->
       <section class="contact" id="contact">
         <div class="container">
-          <h2>Let's talk?</h2>
-          <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto">
-            Barcelona-based QA Engineer, open to full-time roles and collaborations with product-focused technology teams.
+          <h2>Let's talk.</h2>
+          <p class="contact-intro">
+            Based in Barcelona. Open to full-time roles and collaborations in tech companies operating in European or global markets.
           </p>
           <div class="contact-links">
             <a href="mailto:ilverzonzarate@gmail.com" class="contact-link"
@@ -315,6 +320,101 @@
           </div>
         </div>
       </section>
+
+    <div class="qa-dialog" id="strategy-dialog" role="dialog" aria-modal="true" aria-labelledby="strategy-title" hidden>
+      <div class="qa-dialog-backdrop" data-dialog-close></div>
+      <div class="qa-dialog-panel" role="document" tabindex="-1">
+        <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
+        <div class="qa-dialog-layout">
+          <div class="qa-dialog-media"><img src="images/qa-evidence/strategy.png" alt="Implementation strategy for risk-based test coverage across critical e-commerce journeys" /></div>
+          <div class="qa-dialog-content">
+            <p class="portfolio-label">PUBLIC QA CASE STUDY</p>
+            <h2 id="strategy-title">Risk-based coverage strategy</h2>
+            <p>Automation starts with a judgement call: which journeys need confidence first. This strategy prioritised checkout, registration, and authentication around planned product changes and user impact.</p>
+            <div class="qa-dialog-list">
+              <p><strong>Scope</strong><span>Critical purchase, registration, and authentication flows.</span></p>
+              <p><strong>Approach</strong><span>Coverage evolves with the roadmap instead of treating every test equally.</span></p>
+              <p><strong>Value</strong><span>Manual QA judgement shapes where automation is most useful.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-dialog" id="visual-dialog" role="dialog" aria-modal="true" aria-labelledby="visual-title" hidden>
+      <div class="qa-dialog-backdrop" data-dialog-close></div>
+      <div class="qa-dialog-panel" role="document" tabindex="-1">
+        <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
+        <div class="qa-dialog-layout">
+          <div class="qa-dialog-media qa-dialog-media-stack">
+            <img src="images/qa-evidence/visual-report.png" alt="Cypress Image Diff report showing visual comparisons across responsive views" />
+            <img src="images/qa-evidence/visual-detail.png" alt="Detail view of a passing visual comparison against its baseline" />
+          </div>
+          <div class="qa-dialog-content">
+            <p class="portfolio-label">PROFESSIONAL WORK · ANONYMISED</p>
+            <h2 id="visual-title">Cypress migration &amp; visual validation</h2>
+            <p>Visual checks compare key UI areas against an approved baseline across desktop and mobile viewports. They make unexpected interface changes visible without replacing human review.</p>
+            <div class="qa-dialog-list">
+              <p><strong>Coverage</strong><span>Critical pages and shared interface areas across responsive breakpoints.</span></p>
+              <p><strong>Signal</strong><span>Image differences are measured against a defined threshold and reviewed in context.</span></p>
+              <p><strong>Privacy</strong><span>Project and client identifiers have been removed from the evidence shown here.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-dialog" id="automation-dialog" role="dialog" aria-modal="true" aria-labelledby="automation-title" hidden>
+      <div class="qa-dialog-backdrop" data-dialog-close></div>
+      <div class="qa-dialog-panel" role="document" tabindex="-1">
+        <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
+        <div class="qa-dialog-layout">
+          <div class="qa-dialog-media qa-dialog-media-stack">
+            <img src="images/qa-evidence/cypress-report.png" alt="HTML test report showing passing and failing checks across critical user journeys" />
+            <img src="images/qa-evidence/ci-results.png" alt="GitHub Actions run showing cross-browser Cypress results in Chrome and Firefox" />
+          </div>
+          <div class="qa-dialog-content">
+            <p class="portfolio-label">PUBLIC PROJECT</p>
+            <h2 id="automation-title">Critical-flow automation &amp; CI</h2>
+            <p>This suite validates key e-commerce journeys locally and in GitHub Actions across Chrome and Firefox. A failing run is useful evidence: it tells the team where to investigate before release.</p>
+            <div class="qa-dialog-list">
+              <p><strong>Execution</strong><span>Critical scenarios run end to end, with a readable HTML report.</span></p>
+              <p><strong>CI</strong><span>Cross-browser runs complete even when one browser surfaces failures.</span></p>
+              <p><strong>Outcome</strong><span>Results distinguish working paths from issues that need product or engineering attention.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-dialog" id="playwright-dialog" role="dialog" aria-modal="true" aria-labelledby="playwright-title" hidden>
+      <div class="qa-dialog-backdrop" data-dialog-close></div>
+      <div class="qa-dialog-panel" role="document" tabindex="-1">
+        <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
+        <div class="qa-dialog-layout">
+          <div class="qa-dialog-media qa-dialog-media-gallery">
+            <img class="qa-gallery-main" src="images/qa-evidence/playwright-plan.png" alt="Login test plan with scenarios, steps, and expected results" />
+            <div class="qa-gallery-thumbs" aria-label="Playwright evidence gallery">
+              <button class="qa-gallery-thumb is-active" type="button" data-gallery-image="images/qa-evidence/playwright-plan.png" data-gallery-alt="Login test plan with scenarios, steps, and expected results"><img src="images/qa-evidence/playwright-plan.png" alt="" /><span>Plan</span></button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-agent.png" data-gallery-alt="Agent instructions for turning a test plan into Playwright test code"><img src="images/qa-evidence/playwright-agent.png" alt="" /><span>Generate</span></button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-test.png" data-gallery-alt="Playwright test with links to its specification and seed, semantic locators, and an assertion"><img src="images/qa-evidence/playwright-test.png" alt="" /><span>Review</span></button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-report.png" data-gallery-alt="Playwright HTML report with all tests passing across Chromium, Firefox, and WebKit"><img src="images/qa-evidence/playwright-report.png" alt="" /><span>Verify</span></button>
+            </div>
+          </div>
+          <div class="qa-dialog-content">
+            <p class="portfolio-label">PUBLIC PROJECT · AI-ASSISTED</p>
+            <h2 id="playwright-title">Playwright E2E framework</h2>
+            <p>AI can turn a defined scenario into a starting point for test code. QA remains responsible for deciding what matters, reviewing the implementation, and interpreting the result.</p>
+            <div class="qa-dialog-list">
+              <p><strong>Plan</strong><span>Test scenarios define the user journey, expected behaviour, and risk before implementation.</span></p>
+              <p><strong>Generate</strong><span>Browser interactions provide the raw material for Playwright code and semantic locators.</span></p>
+              <p><strong>Review</strong><span>Human review validates scope, assertions, and whether the test reflects intended product behaviour.</span></p>
+              <p><strong>Verify</strong><span>The suite runs across Chromium, Firefox, and WebKit, with an HTML report for the final evidence.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>
