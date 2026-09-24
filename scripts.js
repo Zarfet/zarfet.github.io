@@ -230,10 +230,16 @@ function setActiveLink() {
         thumb.addEventListener("click", () => {
           const gallery = thumb.closest(".qa-dialog-media-gallery");
           const mainImage = gallery.querySelector(".qa-gallery-main");
+          const caption = gallery.querySelector(".qa-gallery-caption");
           mainImage.src = thumb.dataset.galleryImage;
           mainImage.alt = thumb.dataset.galleryAlt;
-          gallery.querySelectorAll(".qa-gallery-thumb").forEach((item) => item.classList.remove("is-active"));
+          if (caption) caption.textContent = thumb.dataset.galleryCaption;
+          gallery.querySelectorAll(".qa-gallery-thumb").forEach((item) => {
+            item.classList.remove("is-active");
+            item.removeAttribute("aria-current");
+          });
           thumb.classList.add("is-active");
+          thumb.setAttribute("aria-current", "true");
         });
       });
 

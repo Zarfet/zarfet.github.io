@@ -793,6 +793,18 @@ body.qa-dialog-open {
   object-fit: contain;
 }
 
+.qa-dialog-media figure {
+  margin: 0;
+  max-width: 100%;
+}
+
+.qa-dialog-media figcaption {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--type-meta);
+  line-height: 1.45;
+  margin-top: 0.65rem;
+}
+
 .qa-dialog-media-stack {
   flex-direction: column;
   gap: 1.25rem;
@@ -812,41 +824,64 @@ body.qa-dialog-open {
 }
 
 .qa-gallery-thumbs {
-  display: grid;
-  gap: 0.65rem;
-  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
   width: 100%;
 }
 
 .qa-gallery-thumb {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 0;
   color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
+  display: flex;
   font-family: inherit;
-  font-size: 0.72rem;
-  overflow: hidden;
-  padding: 0;
+  font-size: var(--type-meta);
+  font-weight: 700;
+  gap: 0.65rem;
+  justify-content: flex-start;
+  padding: 0 0 0.45rem;
+  position: relative;
   text-align: left;
 }
 
-.qa-gallery-thumb img {
-  aspect-ratio: 16 / 8;
-  max-height: none;
-  object-fit: cover;
-  width: 100%;
+.qa-gallery-thumb span {
+  color: #ee7982;
 }
 
-.qa-gallery-thumb span {
-  display: block;
-  padding: 0.4rem 0.5rem;
+.qa-gallery-thumb::after {
+  background: #ee7982;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms ease;
+  width: 100%;
 }
 
 .qa-gallery-thumb:hover,
 .qa-gallery-thumb:focus-visible,
 .qa-gallery-thumb.is-active {
-  border-color: #ee7982;
   color: var(--white);
+}
+
+.qa-gallery-thumb:hover::after,
+.qa-gallery-thumb:focus-visible::after,
+.qa-gallery-thumb.is-active::after {
+  transform: scaleX(1);
+}
+
+.qa-gallery-caption {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--type-meta);
+  line-height: 1.45;
+  margin: -0.45rem 0 0;
+  width: 100%;
 }
 
 .qa-dialog-content {
@@ -1512,10 +1547,6 @@ footer {
 
   .qa-dialog-media-stack img {
     max-height: 13rem;
-  }
-
-  .qa-gallery-thumbs {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .qa-dialog-list p {

@@ -326,7 +326,12 @@
       <div class="qa-dialog-panel" role="document" tabindex="-1">
         <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
         <div class="qa-dialog-layout">
-          <div class="qa-dialog-media"><img src="images/qa-evidence/strategy.png" alt="Implementation strategy for risk-based test coverage across critical e-commerce journeys" /></div>
+          <div class="qa-dialog-media">
+            <figure>
+              <img src="images/qa-evidence/strategy.png" alt="Implementation strategy for risk-based test coverage across critical e-commerce journeys" />
+              <figcaption>Implementation roadmap showing how coverage was sequenced around planned change and risk.</figcaption>
+            </figure>
+          </div>
           <div class="qa-dialog-content">
             <p class="portfolio-label">PUBLIC QA CASE STUDY</p>
             <h2 id="strategy-title">Risk-based coverage strategy</h2>
@@ -347,8 +352,14 @@
         <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
         <div class="qa-dialog-layout">
           <div class="qa-dialog-media qa-dialog-media-stack">
-            <img src="images/qa-evidence/visual-report.png" alt="Cypress Image Diff report showing visual comparisons across responsive views" />
-            <img src="images/qa-evidence/visual-detail.png" alt="Detail view of a passing visual comparison against its baseline" />
+            <figure>
+              <img src="images/qa-evidence/visual-report.png" alt="Cypress Image Diff report showing visual comparisons across responsive views" />
+              <figcaption>Suite-level view of visual checks across desktop and mobile.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/qa-evidence/visual-detail.png" alt="Detail view of a passing visual comparison against its baseline" />
+              <figcaption>Detailed comparison showing the baseline, current result, and measured difference.</figcaption>
+            </figure>
           </div>
           <div class="qa-dialog-content">
             <p class="portfolio-label">PROFESSIONAL WORK · ANONYMISED</p>
@@ -369,9 +380,13 @@
       <div class="qa-dialog-panel" role="document" tabindex="-1">
         <button class="qa-dialog-close" type="button" data-dialog-close aria-label="Close case study">×</button>
         <div class="qa-dialog-layout">
-          <div class="qa-dialog-media qa-dialog-media-stack">
-            <img src="images/qa-evidence/cypress-report.png" alt="HTML test report showing passing and failing checks across critical user journeys" />
-            <img src="images/qa-evidence/ci-results.png" alt="GitHub Actions run showing cross-browser Cypress results in Chrome and Firefox" />
+          <div class="qa-dialog-media qa-dialog-media-gallery">
+            <img class="qa-gallery-main" src="images/qa-evidence/cypress-report.png" alt="HTML test report showing passing and failing checks across critical user journeys" />
+            <div class="qa-gallery-thumbs" aria-label="Critical-flow automation evidence gallery">
+              <button class="qa-gallery-thumb is-active" type="button" aria-current="true" data-gallery-image="images/qa-evidence/cypress-report.png" data-gallery-alt="HTML test report showing passing and failing checks across critical user journeys" data-gallery-caption="The report groups critical checkout, registration, and authentication checks, making defects visible alongside passing coverage."><span>01</span>Test report</button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/ci-results.png" data-gallery-alt="GitHub Actions run showing cross-browser Cypress results in Chrome and Firefox" data-gallery-caption="The same suite runs in Chrome and Firefox in GitHub Actions, with results kept available when failures need investigation."><span>02</span>CI run</button>
+            </div>
+            <p class="qa-gallery-caption">The report groups critical checkout, registration, and authentication checks, making defects visible alongside passing coverage.</p>
           </div>
           <div class="qa-dialog-content">
             <p class="portfolio-label">PUBLIC PROJECT</p>
@@ -395,11 +410,12 @@
           <div class="qa-dialog-media qa-dialog-media-gallery">
             <img class="qa-gallery-main" src="images/qa-evidence/playwright-plan.png" alt="Login test plan with scenarios, steps, and expected results" />
             <div class="qa-gallery-thumbs" aria-label="Playwright evidence gallery">
-              <button class="qa-gallery-thumb is-active" type="button" data-gallery-image="images/qa-evidence/playwright-plan.png" data-gallery-alt="Login test plan with scenarios, steps, and expected results"><img src="images/qa-evidence/playwright-plan.png" alt="" /><span>Plan</span></button>
-              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-agent.png" data-gallery-alt="Agent instructions for turning a test plan into Playwright test code"><img src="images/qa-evidence/playwright-agent.png" alt="" /><span>Generate</span></button>
-              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-test.png" data-gallery-alt="Playwright test with links to its specification and seed, semantic locators, and an assertion"><img src="images/qa-evidence/playwright-test.png" alt="" /><span>Review</span></button>
-              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-report.png" data-gallery-alt="Playwright HTML report with all tests passing across Chromium, Firefox, and WebKit"><img src="images/qa-evidence/playwright-report.png" alt="" /><span>Verify</span></button>
+              <button class="qa-gallery-thumb is-active" type="button" aria-current="true" data-gallery-image="images/qa-evidence/playwright-plan.png" data-gallery-alt="Login test plan with scenarios, steps, and expected results" data-gallery-caption="The plan turns the login flow into explicit scenarios, steps, and expected outcomes."><span>01</span>Plan</button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-agent.png" data-gallery-alt="Agent instructions for turning a test plan into Playwright test code" data-gallery-caption="Agent guidance and browser interactions provide a starting point for implementation, not a finished answer."><span>02</span>Generate</button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-test.png" data-gallery-alt="Playwright test with links to its specification and seed, semantic locators, and an assertion" data-gallery-caption="The generated test is reviewed for intent, selectors, assertions, and maintainability."><span>03</span>Review</button>
+              <button class="qa-gallery-thumb" type="button" data-gallery-image="images/qa-evidence/playwright-report.png" data-gallery-alt="Playwright HTML report with all tests passing across Chromium, Firefox, and WebKit" data-gallery-caption="The report confirms the suite ran across Chromium, Firefox, and WebKit."><span>04</span>Verify</button>
             </div>
+            <p class="qa-gallery-caption">The plan turns the login flow into explicit scenarios, steps, and expected outcomes.</p>
           </div>
           <div class="qa-dialog-content">
             <p class="portfolio-label">PUBLIC PROJECT · AI-ASSISTED</p>
