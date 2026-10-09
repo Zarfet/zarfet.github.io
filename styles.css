@@ -571,13 +571,14 @@ section[id] {
 
 .portfolio-heading {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 6rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   align-items: start;
   margin-bottom: 3rem;
 }
 
 .portfolio-heading p {
+  max-width: 65ch;
   color: rgba(255, 255, 255, 0.72);
   font-size: var(--type-intro);
   line-height: 1.65;
