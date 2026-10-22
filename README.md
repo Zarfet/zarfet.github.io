@@ -22,8 +22,8 @@ Personal portfolio site for Ilverzon Zarate — QA Engineer with a background in
 
 ```
 ├── cv/
-│   ├── cv-ilverzon-zarate-en.pdf    # Downloadable CV (English)
-│   └── cv-ilverzon-zarate-es.pdf    # Downloadable CV (Spanish)
+│   ├── Ilverzon-Zarate-CV-EN.pdf    # Downloadable CV (English)
+│   └── Ilverzon-Zarate-CV-ES.pdf    # Downloadable CV (Spanish)
 ├── es/
 │   └── index.html                   # Spanish version
 ├── ca/
